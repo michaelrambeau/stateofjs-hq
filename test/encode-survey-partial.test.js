@@ -11,13 +11,21 @@ test('It should encode the response from the API', () => {
   expect(responses.length).toBe(1)
   const encoded = encode(survey, questions)(responses[0])
   expect(encoded.length > 0).toBe(true)
-  expect(encoded.slice(0, 4)).toEqual([
-    ['NPM', 'Yarn'],
-    'jQuery',
-    'Sublime Text',
-    "I don't know what that is"
+  expect(encoded).toEqual([
+    '2017-07-17 07:18:25',
+    'Singapore',
+    'Singapore',
+    'desktop',
+    'windows',
+    'Chrome',
+    [0, 1], // NPM and Yarn
+    0, // jQuery
+    0, // Sublime Text
+    0 // "I don't know what that is"
   ])
   const decoded = rowToJSON(survey)(encoded)
   debug('JSON', decoded)
-  expect(decoded.length).toBe(4)
+  expect(decoded.length).toBe(10)
+  // Check meta values
+  expect(decoded[3]).toEqual({ name: 'device', value: 'desktop' })
 })

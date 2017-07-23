@@ -4,6 +4,7 @@ const get = require('lodash.get')
 
 const transformId = require('./helpers/transform-id')
 const groupAnswers = require('./helpers/group-answers')
+const getQuestionOptions = require('./helpers/get-question-options')
 
 const encodeSurveyResponse = (survey, apiQuestions) => {
   return surveyResponse => {
@@ -13,35 +14,38 @@ const encodeSurveyResponse = (survey, apiQuestions) => {
     const { questions, types } = surveyWithIds
     const { answers } = surveyResponse
     const groupedAnswers = groupAnswers(answers)
-    const encodedAnswers = questions.map(question => {
+    const answerValues = questions.map(question => {
       const { type, text, id } = question
       const questionId = transformId(id)
       const answer = groupedAnswers[questionId]
-      const encoded = answer ? encodeAnswerValue(answer, types, type) : ''
-      debug('Question', questionId, text, encoded)
+      const encoded = answer ? encodeAnswerValue(answer, question, types) : ''
+      // debug('Question', questionId, text, encoded)
       return encoded
     })
-    const meta = survey.meta.reduce(
+    const metaValues = encodeMetaFields(survey, surveyResponse)
+    const values = [].concat(metaValues, answerValues)
+    debug(values)
+    return values
+  }
+}
+
+// Read meta fields definition ([{name: "", path: ""},...]) and return the array of values
+const encodeMetaFields = (surveyDefinition, surveyResponse) =>
+  Object.values(
+    surveyDefinition.meta.reduce(
       (acc, item) =>
         Object.assign({}, acc, { [item.name]: get(surveyResponse, item.path) }),
       {}
     )
-    return encodedAnswers.concat(Object.values(meta))
-  }
-}
+  )
 
-function encodeAnswerValue(answer, types, type) {
-  const options = types[type]
-  switch (type) {
-    case 'knowledge':
-    case 'happiness':
-    case 'feature':
-    case 'opinion':
-      if (!options) return answer
-      return options.indexOf(answer)
-    default:
-      return formatValue(answer)
-  }
+function encodeAnswerValue(answer, question, types) {
+  const options = getQuestionOptions(question, types)
+  const convert = value =>
+    options ? options.indexOf(value) : formatValue(value)
+  const encoded = Array.isArray(answer) ? answer.map(convert) : convert(answer)
+  debug('Encode answer', answer, '=>', encoded, options)
+  return encoded
 }
 
 function formatValue(source) {

@@ -1,9 +1,23 @@
 const debug = require('debug')('decode')
+const getQuestionOptions = require('./helpers/get-question-options')
 
 const rowToJSON = survey => row => {
-  const count = survey.questions.length
-  debug(row)
-  return row.slice(0, count).map((item, i) => {
+  const count = survey.meta.length
+  debug(row.slice(count))
+  const meta = decodeMeta(survey, row.slice(0, count))
+  const answers = decodeAnswers(survey, row.slice(count))
+  return [].concat(meta, answers)
+}
+
+function decodeMeta(survey, rowData) {
+  return rowData.map((item, i) => {
+    const metaDefinition = survey.meta[i]
+    return { name: metaDefinition.name, value: item }
+  })
+}
+
+function decodeAnswers(survey, rowData) {
+  return rowData.map((item, i) => {
     const question = survey.questions[i]
     const types = survey.types
     return {
@@ -14,18 +28,10 @@ const rowToJSON = survey => row => {
 }
 
 function decodeValue(value, question, types) {
-  debug('> Decode', value)
-  const { type } = question
-  const options = types[type]
-  switch (type) {
-    case 'knowledge':
-    case 'happyness':
-    case 'feature':
-    case 'opinion':
-      return options[value] || value
-    default:
-      return value
-  }
+  const options = getQuestionOptions(question, types)
+  const decoded = (options && options[value]) || value
+  debug('> Decode', value, '=>', decoded)
+  return decoded
 }
 
 module.exports = rowToJSON
