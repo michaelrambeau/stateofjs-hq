@@ -1,0 +1,11 @@
+[
+  {
+    "type": "knowledge",
+    "text": ["Mocha", "Jasmine", "Enzyme", "Jest", "Tape", "Ava"]
+  },
+  { "text": "Other testing frameworks" },
+  {
+    "type": "happiness",
+    "text": "On a scale of one to five severed hands, how happy are you with the current state of JavaScript testing?"
+  }
+]

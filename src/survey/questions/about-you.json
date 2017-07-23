@@ -1,0 +1,67 @@
+[
+  {
+    "text": "Years of Experience",
+    "type": "single",
+    "options": [
+      "Less than one year",
+      "1-2 years",
+      "2-5 years",
+      "5-10 years",
+      "10-20 years",
+      "20+ years"
+    ]
+  },
+  {
+    "text": "Company Size",
+    "type": "single",
+    "options": [
+      "Just me",
+      "1-5 people",
+      "5-10 people",
+      "10-20 people",
+      "20-50 people",
+      "50-100 people",
+      "100-1000 people",
+      "1000+ people"
+    ]
+  },
+  {
+    "text": "Yearly Salary",
+    "type": "single",
+    "options": [
+      "I work for free",
+      "$0 - $10k",
+      "$10 - $30k",
+      "$30 - $50k",
+      "$100 - $200k",
+      "$200k+"
+    ]
+  },
+  {
+    "text": "Tabs or Spaces",
+    "type": "single",
+    "options": ["Tabs for life!", "Spaces rule!"]
+  },
+  {
+    "text": "Semicolons: Yes or No",
+    "type": "single",
+    "options": [
+      "Yes, always",
+      "Not if I can avoid it",
+      "It depends on the project"
+    ]
+  },
+  {
+    "text": "How did you find about this survey?"
+  },
+  {
+    "text": "Your email"
+  },
+  {
+    "text": "Your country"
+  },
+  {
+    "text": "Other comments",
+    "type": "textarea"
+  }
+]

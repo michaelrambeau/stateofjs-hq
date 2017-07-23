@@ -1,0 +1,18 @@
+{
+  "knowledge": [
+    "I've never heard of it",
+    "I've HEARD of it, and WOULD like to learn it",
+    "I've HEARD of it, and am NOT interested",
+    "I've USED it before, and WOULD use it again",
+    "I've USED it before, and would NOT use it again"
+  ],
+  "happiness": ["1", "2", "3", "4", "5"],
+  "feature": [
+    "I don't know what that is",
+    "Not needed",
+    "Nice-to-have, but not important",
+    "Major feature",
+    "Vital feature"
+  ],
+  "opinion": ["0", "1", "2", "3", "4"]
+}

@@ -1,0 +1,943 @@
+{
+    "http_status": 200,
+    "stats": {
+        "responses": {
+            "showing": 1,
+            "total": 29538,
+            "completed": 16987
+        }
+    },
+    "questions": [
+        {
+            "id": "statement_mv0L",
+            "question": "<strong>How this survey works<br /><br /></strong>For each technology, framework, or library mentioned, please pick one of the following options:<br /><br />- You've never heard about it<br />- You've heard about it and you <strong>want</strong> to learn it<br />- You've heard about it, but <strong>don't want</strong> to learn it (or are <strong>unsure</strong>)<br />- You've used it and <strong>want</strong> to use it again<br />- You've used it but <strong>don't</strong> <strong>want</strong> to use it again<br /><br />Note: questions with a \"*\" are required.",
+            "field_id": 53701064
+        },
+        {
+            "id": "group_Ycf3",
+            "question": "Front-End",
+            "field_id": 53701053
+        },
+        {
+            "id": "list_ZxUD_choice",
+            "question": "React",
+            "field_id": 53701073,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_nPic_choice",
+            "question": "Angular",
+            "field_id": 53701074,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_Fqkn_choice",
+            "question": "Angular 2",
+            "field_id": 53701075,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_Gk1R_choice",
+            "question": "Ember",
+            "field_id": 53701076,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_Fxzs_choice",
+            "question": "Vue",
+            "field_id": 53701077,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_kT0P_choice",
+            "question": "Backbone",
+            "field_id": 53701078,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_55570167_choice",
+            "question": "Polymer",
+            "field_id": 55570167,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_55570222_choice",
+            "question": "Aurelia",
+            "field_id": 55570222,
+            "group": "group_53701053"
+        },
+        {
+            "id": "list_i5QX_choice",
+            "question": "No Front-End Framework",
+            "field_id": 53701072,
+            "group": "group_53701053"
+        },
+        {
+            "id": "textarea_f0gX",
+            "question": "Other Front-End Frameworks",
+            "field_id": 53701137,
+            "group": "group_53701053"
+        },
+        {
+            "id": "rating_y0kW",
+            "question": "On a scale of one to five cats, how happy are you with your current solution for the front-end?",
+            "field_id": 53701129,
+            "group": "group_53701053"
+        },
+        {
+            "id": "group_it7e",
+            "question": "JavaScript Flavor",
+            "field_id": 53701052
+        },
+        {
+            "id": "list_uIGj_choice",
+            "question": "\"Plain\" JavaScript (ES5)",
+            "field_id": 53701066,
+            "group": "group_53701052"
+        },
+        {
+            "id": "list_fQxL_choice",
+            "question": "ES6",
+            "field_id": 53701067,
+            "group": "group_53701052"
+        },
+        {
+            "id": "list_O5iI_choice",
+            "question": "TypeScript",
+            "field_id": 53701069,
+            "group": "group_53701052"
+        },
+        {
+            "id": "list_55569558_choice",
+            "question": "Flow",
+            "field_id": 55569558,
+            "group": "group_53701052"
+        },
+        {
+            "id": "list_Fmdr_choice",
+            "question": "Elm",
+            "field_id": 53701070,
+            "group": "group_53701052"
+        },
+        {
+            "id": "list_Tv09_choice",
+            "question": "ClojureScript",
+            "field_id": 53701071,
+            "group": "group_53701052"
+        },
+        {
+            "id": "list_55571740_choice",
+            "question": "Reason",
+            "field_id": 55571740,
+            "group": "group_53701052"
+        },
+        {
+            "id": "rating_w2Tu",
+            "question": "On a scale of one to five dogs, how happy are you with your current flavor of JavaScript?",
+            "field_id": 53701128,
+            "group": "group_53701052"
+        },
+        {
+            "id": "group_aFGH",
+            "question": "Data Layer",
+            "field_id": 53701054
+        },
+        {
+            "id": "list_wqZL_choice",
+            "question": "REST API",
+            "field_id": 53701082,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_vjDD_choice",
+            "question": "Redux",
+            "field_id": 53701079,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_ug8Y_choice",
+            "question": "MobX",
+            "field_id": 53701080,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_prYE_choice",
+            "question": "GraphQL",
+            "field_id": 53701084,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_ByoY_choice",
+            "question": "Relay/Relay Modern",
+            "field_id": 53701081,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_55571031_choice",
+            "question": "Falcor",
+            "field_id": 55571031,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_WP7G_choice",
+            "question": "Apollo",
+            "field_id": 53701085,
+            "group": "group_53701054"
+        },
+        {
+            "id": "list_NWen_choice",
+            "question": "Firebase",
+            "field_id": 53701083,
+            "group": "group_53701054"
+        },
+        {
+            "id": "textarea_uR01",
+            "question": "Other Data Management Solutions",
+            "field_id": 53701138,
+            "group": "group_53701054"
+        },
+        {
+            "id": "rating_CHBd",
+            "question": "On a scale of one to five thunderbolts, how happy are you with your current solution for state management?",
+            "field_id": 53701130,
+            "group": "group_53701054"
+        },
+        {
+            "id": "group_YVd8",
+            "question": "Back-End",
+            "field_id": 53701056
+        },
+        {
+            "id": "list_A46m_choice",
+            "question": "Meteor",
+            "field_id": 53701088,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_55571448_choice",
+            "question": "Express",
+            "field_id": 55571448,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_55571469_choice",
+            "question": "Koa",
+            "field_id": 55571469,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_55571498_choice",
+            "question": "Hapi",
+            "field_id": 55571498,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_uPDA_choice",
+            "question": "FeathersJS",
+            "field_id": 53701089,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_55791153_choice",
+            "question": "Sails",
+            "field_id": 55791153,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_55791174_choice",
+            "question": "Loopback",
+            "field_id": 55791174,
+            "group": "group_53701056"
+        },
+        {
+            "id": "list_55791275_choice",
+            "question": "Keystone",
+            "field_id": 55791275,
+            "group": "group_53701056"
+        },
+        {
+            "id": "textarea_QX12",
+            "question": "Other Back-End Tools",
+            "field_id": 53701140,
+            "group": "group_53701056"
+        },
+        {
+            "id": "rating_lUYG",
+            "question": "On a scale of one to five trophies, how happy are you with your current back-end solution?",
+            "field_id": 53701132,
+            "group": "group_53701056"
+        },
+        {
+            "id": "group_jm6x",
+            "question": "Testing",
+            "field_id": 53701057
+        },
+        {
+            "id": "list_zNoo_choice",
+            "question": "Mocha",
+            "field_id": 53701093,
+            "group": "group_53701057"
+        },
+        {
+            "id": "list_Aqts_choice",
+            "question": "Jasmine",
+            "field_id": 53701094,
+            "group": "group_53701057"
+        },
+        {
+            "id": "list_zasr_choice",
+            "question": "Enzyme",
+            "field_id": 53701095,
+            "group": "group_53701057"
+        },
+        {
+            "id": "list_TJLc_choice",
+            "question": "Jest",
+            "field_id": 53701096,
+            "group": "group_53701057"
+        },
+        {
+            "id": "list_m0hs_choice",
+            "question": "Tape",
+            "field_id": 53701097,
+            "group": "group_53701057"
+        },
+        {
+            "id": "list_BE1m_choice",
+            "question": "Ava",
+            "field_id": 53701098,
+            "group": "group_53701057"
+        },
+        {
+            "id": "textarea_hCPF",
+            "question": "Other testing frameworks",
+            "field_id": 53701141,
+            "group": "group_53701057"
+        },
+        {
+            "id": "rating_sAAJ",
+            "question": "On a scale of one to five severed hands, how happy are you with the current state of JavaScript testing?",
+            "field_id": 53701133,
+            "group": "group_53701057"
+        },
+        {
+            "id": "statement_qqnK",
+            "question": "Halfway there!",
+            "field_id": 53701065
+        },
+        {
+            "id": "group_mgni",
+            "question": "CSS",
+            "field_id": 53701058
+        },
+        {
+            "id": "list_ViEz_choice",
+            "question": "Plain CSS",
+            "field_id": 53701099,
+            "group": "group_53701058"
+        },
+        {
+            "id": "list_C7Sz_choice",
+            "question": "SASS/SCSS",
+            "field_id": 53701100,
+            "group": "group_53701058"
+        },
+        {
+            "id": "list_55570923_choice",
+            "question": "Stylus",
+            "field_id": 55570923,
+            "group": "group_53701058"
+        },
+        {
+            "id": "list_YyTC_choice",
+            "question": "LESS",
+            "field_id": 53701101,
+            "group": "group_53701058"
+        },
+        {
+            "id": "list_CJjB_choice",
+            "question": "CSS-in-JS",
+            "field_id": 53701102,
+            "group": "group_53701058"
+        },
+        {
+            "id": "list_55571869_choice",
+            "question": "Bootstrap",
+            "field_id": 55571869,
+            "group": "group_53701058"
+        },
+        {
+            "id": "list_55571871_choice",
+            "question": "Foundation",
+            "field_id": 55571871,
+            "group": "group_53701058"
+        },
+        {
+            "id": "textarea_Meh3",
+            "question": "Other CSS solutions",
+            "field_id": 53701142,
+            "group": "group_53701058"
+        },
+        {
+            "id": "rating_nZC0",
+            "question": "On a scale of one to five lightbulbs, how happy are you with the current state of CSS?",
+            "field_id": 53701134,
+            "group": "group_53701058"
+        },
+        {
+            "id": "group_YEnr",
+            "question": "Build Tools",
+            "field_id": 53701059
+        },
+        {
+            "id": "list_Mk8w_choice",
+            "question": "Webpack",
+            "field_id": 53701104,
+            "group": "group_53701059"
+        },
+        {
+            "id": "list_bR7L_choice",
+            "question": "Grunt",
+            "field_id": 53701105,
+            "group": "group_53701059"
+        },
+        {
+            "id": "list_XPBe_choice",
+            "question": "Gulp",
+            "field_id": 53701106,
+            "group": "group_53701059"
+        },
+        {
+            "id": "list_YSvT_choice",
+            "question": "Browserify",
+            "field_id": 53701107,
+            "group": "group_53701059"
+        },
+        {
+            "id": "list_55571612_choice",
+            "question": "NPM",
+            "field_id": 55571612,
+            "group": "group_53701059"
+        },
+        {
+            "id": "list_55571695_choice",
+            "question": "Rollup",
+            "field_id": 55571695,
+            "group": "group_53701059"
+        },
+        {
+            "id": "textarea_UzYH",
+            "question": "Other build tools",
+            "field_id": 53701143,
+            "group": "group_53701059"
+        },
+        {
+            "id": "rating_Qx46",
+            "question": "On a scale of one to five droplets, how happy are you with the current state of build tools?",
+            "field_id": 53701135,
+            "group": "group_53701059"
+        },
+        {
+            "id": "group_SGLY",
+            "question": "Mobile & Desktop",
+            "field_id": 53701060
+        },
+        {
+            "id": "list_IZ0M_choice",
+            "question": "Native Apps",
+            "field_id": 53701109,
+            "group": "group_53701060"
+        },
+        {
+            "id": "list_Xs6a_choice",
+            "question": "React Native",
+            "field_id": 53701110,
+            "group": "group_53701060"
+        },
+        {
+            "id": "list_55577990_choice",
+            "question": "Ionic",
+            "field_id": 55577990,
+            "group": "group_53701060"
+        },
+        {
+            "id": "list_kOzD_choice",
+            "question": "PhoneGap/Cordova",
+            "field_id": 53701112,
+            "group": "group_53701060"
+        },
+        {
+            "id": "list_mg07_choice",
+            "question": "NativeScript",
+            "field_id": 53701113,
+            "group": "group_53701060"
+        },
+        {
+            "id": "list_55571771_choice",
+            "question": "Electron",
+            "field_id": 55571771,
+            "group": "group_53701060"
+        },
+        {
+            "id": "textarea_uFwz",
+            "question": "Other mobile/desktop apps solutions",
+            "field_id": 53701144,
+            "group": "group_53701060"
+        },
+        {
+            "id": "rating_qeuD",
+            "question": "On a scale of one to five pencils, how happy are you with the current state of mobile apps?",
+            "field_id": 53701136,
+            "group": "group_53701060"
+        },
+        {
+            "id": "group_55676946",
+            "question": "Other Tools",
+            "field_id": 55676946
+        },
+        {
+            "id": "list_55680622_choice_69899414",
+            "question": "Package Managers",
+            "field_id": 55680622,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55680622_choice_69899415",
+            "question": "Package Managers",
+            "field_id": 55680622,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55680622_choice_69899416",
+            "question": "Package Managers",
+            "field_id": 55680622,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55680622_other",
+            "question": "Package Managers",
+            "field_id": 55680622,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677344_choice_69896647",
+            "question": "Utility Libraries",
+            "field_id": 55677344,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677344_choice_69895174",
+            "question": "Utility Libraries",
+            "field_id": 55677344,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677344_choice_69895175",
+            "question": "Utility Libraries",
+            "field_id": 55677344,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677344_choice_69895176",
+            "question": "Utility Libraries",
+            "field_id": 55677344,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677344_other",
+            "question": "Utility Libraries",
+            "field_id": 55677344,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_Gwo0_choice",
+            "question": "Text Editors",
+            "field_id": 53701125,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_Gwo0_other",
+            "question": "Text Editors",
+            "field_id": 53701125,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677233_choice_69895067",
+            "question": "Code Linters",
+            "field_id": 55677233,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677233_choice_69895068",
+            "question": "Code Linters",
+            "field_id": 55677233,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677233_choice_69895069",
+            "question": "Code Linters",
+            "field_id": 55677233,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677233_choice_69895070",
+            "question": "Code Linters",
+            "field_id": 55677233,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677233_choice_69895071",
+            "question": "Code Linters",
+            "field_id": 55677233,
+            "group": "group_55676946"
+        },
+        {
+            "id": "list_55677233_other",
+            "question": "Code Linters",
+            "field_id": 55677233,
+            "group": "group_55676946"
+        },
+        {
+            "id": "group_iKT4",
+            "question": "Features",
+            "field_id": 53701061
+        },
+        {
+            "id": "list_QHBS_choice",
+            "question": "Server-Side Rendering",
+            "field_id": 53701114,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_WaRZ_choice",
+            "question": "Code Splitting",
+            "field_id": 53701115,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_pTmF_choice",
+            "question": "Optimistic Updates",
+            "field_id": 53701116,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_Zkh7_choice",
+            "question": "Hot Module Reloading",
+            "field_id": 53701117,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_khxV_choice",
+            "question": "Time-Travel Debugging",
+            "field_id": 53701118,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_FwFK_choice",
+            "question": "Real-Time Operations",
+            "field_id": 53701119,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_Jlzm_choice",
+            "question": "Dead Code Elimination",
+            "field_id": 53701120,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_l5jS_choice",
+            "question": "Progressive Enhancement",
+            "field_id": 53701121,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_55571803_choice",
+            "question": "Service Workers",
+            "field_id": 55571803,
+            "group": "group_53701061"
+        },
+        {
+            "id": "list_55790065_choice",
+            "question": "Offline Usage",
+            "field_id": 55790065,
+            "group": "group_53701061"
+        },
+        {
+            "id": "textarea_uGUL",
+            "question": "Other Features",
+            "field_id": 53701145,
+            "group": "group_53701061"
+        },
+        {
+            "id": "group_TeiP",
+            "question": "Opinion Questions",
+            "field_id": 53701062
+        },
+        {
+            "id": "opinionscale_p6If",
+            "question": "JavaScript is moving in the right direction",
+            "field_id": 53701147,
+            "group": "group_53701062"
+        },
+        {
+            "id": "opinionscale_eqDY",
+            "question": "Building JavaScript apps is overly complex right now",
+            "field_id": 53701148,
+            "group": "group_53701062"
+        },
+        {
+            "id": "opinionscale_vpaM",
+            "question": "JavaScript is over-used online",
+            "field_id": 53701149,
+            "group": "group_53701062"
+        },
+        {
+            "id": "opinionscale_cSIl",
+            "question": "I enjoy building JavaScript apps",
+            "field_id": 53701150,
+            "group": "group_53701062"
+        },
+        {
+            "id": "opinionscale_wFME",
+            "question": "I would like JavaScript to be my main programming language",
+            "field_id": 53701151,
+            "group": "group_53701062"
+        },
+        {
+            "id": "opinionscale_cHRn",
+            "question": "The JavaScript ecosystem is changing too fast",
+            "field_id": 53701152,
+            "group": "group_53701062"
+        },
+        {
+            "id": "opinionscale_dPi9",
+            "question": "This survey is too damn long!",
+            "field_id": 53701153,
+            "group": "group_53701062"
+        },
+        {
+            "id": "group_tMlJ",
+            "question": "About You",
+            "field_id": 53701063
+        },
+        {
+            "id": "list_fbQg_choice",
+            "question": "Years of Experience",
+            "field_id": 53701122,
+            "group": "group_53701063"
+        },
+        {
+            "id": "list_OoKe_choice",
+            "question": "Company Size",
+            "field_id": 53701123,
+            "group": "group_53701063"
+        },
+        {
+            "id": "list_jyR0_choice",
+            "question": "Yearly Salary",
+            "field_id": 53701124,
+            "group": "group_53701063"
+        },
+        {
+            "id": "list_RX1e_choice",
+            "question": "Tabs or Spaces?",
+            "field_id": 53701126,
+            "group": "group_53701063"
+        },
+        {
+            "id": "list_55677569_choice",
+            "question": "Semicolons: Yes or No?",
+            "field_id": 55677569,
+            "group": "group_53701063"
+        },
+        {
+            "id": "textfield_55778171",
+            "question": "How did you find out about this survey?",
+            "field_id": 55778171,
+            "group": "group_53701063"
+        },
+        {
+            "id": "email_Fvkq",
+            "question": "Your Email",
+            "field_id": 53701154,
+            "group": "group_53701063"
+        },
+        {
+            "id": "textfield_56233483",
+            "question": "Your Country",
+            "field_id": 56233483,
+            "group": "group_53701063"
+        },
+        {
+            "id": "textfield_56233489",
+            "question": "Your City",
+            "field_id": 56233489,
+            "group": "group_53701063"
+        },
+        {
+            "id": "textarea_ccGC",
+            "question": "Other Comments",
+            "field_id": 53701146,
+            "group": "group_53701063"
+        },
+        {
+            "id": "hidden_location",
+            "question": "location",
+            "field_id": 395933
+        },
+        {
+            "id": "hidden_device",
+            "question": "device",
+            "field_id": 395934
+        },
+        {
+            "id": "hidden_browser",
+            "question": "browser",
+            "field_id": 395936
+        },
+        {
+            "id": "hidden_version",
+            "question": "version",
+            "field_id": 395949
+        },
+        {
+            "id": "hidden_os",
+            "question": "os",
+            "field_id": 395950
+        },
+        {
+            "id": "hidden_city",
+            "question": "city",
+            "field_id": 395975
+        },
+        {
+            "id": "hidden_gaid",
+            "question": "gaid",
+            "field_id": 396001
+        },
+        {
+            "id": "hidden_referrer",
+            "question": "referrer",
+            "field_id": 403999
+        }
+    ],
+    "responses": [
+        {
+            "token": "c4e725a2e81ecd9f6a84afd4ac41bff0",
+            "completed": "1",
+            "metadata": {
+                "browser": "default",
+                "platform": "other",
+                "date_land": "2017-07-17 07:05:52",
+                "date_submit": "2017-07-17 07:18:25",
+                "user_agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
+                "referer": "https://stateofjs.typeform.com/to/S5iLk9?browser=Chrome&version=59.0&os=windows&referrer=http://stateofjs.com/&city=Singapore&location=Singapore&device=desktop&gaid=1432898610.1500262407",
+                "network_id": "b566efba4e"
+            },
+            "hidden": {
+                "location": "Singapore",
+                "device": "desktop",
+                "browser": "Chrome",
+                "version": "59.0",
+                "os": "windows",
+                "city": "Singapore",
+                "gaid": "1432898610.1500262407",
+                "referrer": null
+            },
+            "answers": {
+                "list_ZxUD_choice": "I've USED it before, and WOULD use it again",
+                "list_nPic_choice": "I've HEARD of it, and am NOT interested",
+                "list_Fqkn_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_Gk1R_choice": "I've HEARD of it, and am NOT interested",
+                "list_Fxzs_choice": "I've USED it before, and WOULD use it again",
+                "list_kT0P_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_55570167_choice": "I've never heard of it",
+                "list_55570222_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_i5QX_choice": "I've USED it before, and WOULD use it again",
+                "rating_y0kW": "4",
+                "list_uIGj_choice": "I've USED it before, and WOULD use it again",
+                "list_fQxL_choice": "I've USED it before, and WOULD use it again",
+                "list_O5iI_choice": "I've HEARD of it, and am NOT interested",
+                "list_55569558_choice": "I've never heard of it",
+                "list_Fmdr_choice": "I've never heard of it",
+                "list_Tv09_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_55571740_choice": "I've never heard of it",
+                "rating_w2Tu": "4",
+                "list_wqZL_choice": "I've USED it before, and WOULD use it again",
+                "list_vjDD_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_ug8Y_choice": "I've never heard of it",
+                "list_prYE_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_ByoY_choice": "I've never heard of it",
+                "list_55571031_choice": "I've never heard of it",
+                "list_WP7G_choice": "I've never heard of it",
+                "list_NWen_choice": "I've HEARD of it, and am NOT interested",
+                "rating_CHBd": "3",
+                "list_A46m_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_55571448_choice": "I've USED it before, and WOULD use it again",
+                "list_55571469_choice": "I've never heard of it",
+                "list_55571498_choice": "I've never heard of it",
+                "list_uPDA_choice": "I've never heard of it",
+                "list_55791153_choice": "I've never heard of it",
+                "list_55791174_choice": "I've never heard of it",
+                "list_55791275_choice": "I've never heard of it",
+                "rating_lUYG": "3",
+                "list_zNoo_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_Aqts_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_zasr_choice": "I've never heard of it",
+                "list_TJLc_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_m0hs_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_BE1m_choice": "I've never heard of it",
+                "rating_sAAJ": "2",
+                "list_ViEz_choice": "I've USED it before, and WOULD use it again",
+                "list_C7Sz_choice": "I've USED it before, and WOULD use it again",
+                "list_55570923_choice": "I've never heard of it",
+                "list_YyTC_choice": "I've USED it before, and would NOT use it again",
+                "list_CJjB_choice": "I've USED it before, and WOULD use it again",
+                "list_55571869_choice": "I've USED it before, and WOULD use it again",
+                "list_55571871_choice": "I've USED it before, and WOULD use it again",
+                "rating_nZC0": "4",
+                "list_Mk8w_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_bR7L_choice": "I've HEARD of it, and am NOT interested",
+                "list_XPBe_choice": "I've USED it before, and WOULD use it again",
+                "list_YSvT_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_55571612_choice": "I've USED it before, and WOULD use it again",
+                "list_55571695_choice": "I've HEARD of it, and WOULD like to learn it",
+                "rating_Qx46": "4",
+                "list_IZ0M_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_Xs6a_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_55577990_choice": "I've HEARD of it, and am NOT interested",
+                "list_kOzD_choice": "I've USED it before, and WOULD use it again",
+                "list_mg07_choice": "I've HEARD of it, and WOULD like to learn it",
+                "list_55571771_choice": "I've HEARD of it, and am NOT interested",
+                "rating_qeuD": "4",
+                "list_55680622_choice_69899414": "NPM",
+                "list_55680622_choice_69899415": "Yarn",
+                "list_55677344_choice_69896647": "jQuery",
+                "list_Gwo0_choice": "Sublime Text",
+                "list_55677233_choice_69895067": "I don't know what that is",
+                "list_QHBS_choice": "Major feature",
+                "list_WaRZ_choice": "Major feature",
+                "list_pTmF_choice": "I don't know what that is",
+                "list_Zkh7_choice": "Vital feature",
+                "list_khxV_choice": "Vital feature",
+                "list_FwFK_choice": "Vital feature",
+                "list_Jlzm_choice": "Major feature",
+                "list_l5jS_choice": "I don't know what that is",
+                "list_55571803_choice": "Nice-to-have, but not important",
+                "list_55790065_choice": "Nice-to-have, but not important",
+                "opinionscale_p6If": "3",
+                "opinionscale_eqDY": "3",
+                "opinionscale_vpaM": "2",
+                "opinionscale_cSIl": "3",
+                "opinionscale_wFME": "3",
+                "opinionscale_cHRn": "3",
+                "opinionscale_dPi9": "2",
+                "list_fbQg_choice": "2-5 years",
+                "list_OoKe_choice": "5-10 people",
+                "list_jyR0_choice": "$10-$30k",
+                "list_RX1e_choice": "Tabs for life!",
+                "list_55677569_choice": "Yes, always"
+            }
+        }
+    ]
+}

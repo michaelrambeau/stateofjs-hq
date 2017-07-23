@@ -1,0 +1,40 @@
+{
+  "name": "stateofjs-hq",
+  "version": "1.0.0",
+  "description": "Parsing StateOfJS 2017 survey answers",
+  "main": "index.js",
+  "dependencies": {
+    "csv": "^1.1.1",
+    "debug": "^2.6.8",
+    "fs-extra": "^4.0.0",
+    "js-yaml": "^3.9.0",
+    "lodash.flatten": "^4.4.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.mapvalues": "^4.6.0",
+    "lodash.times": "^4.3.2",
+    "lodash.uniq": "^4.5.0"
+  },
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "babel-eslint": "^7.2.3",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.14.1",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-promise": "^2.0.1",
+    "jest": "^20.0.4",
+    "prettier": "^1.5.3"
+  },
+  "scripts": {
+    "test": "jest",
+    "test.watch": "jest --watch",
+    "debug": "jest test/encode-survey-partial.test.js --watch"
+  },
+  "author": "Michael Rambeau",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "knowledge",
+    "text": [
+      "Meteor",
+      "Express",
+      "Koa",
+      "Hapi",
+      "FeathersJS",
+      "Sails",
+      "Loopback",
+      "Keystone"
+    ]
+  },
+  { "text": "Other Front-End Frameworks" },
+  {
+    "type": "happiness",
+    "text": "On a scale of one to five trophies, how happy are you with your current back-end solution?"
+  }
+]

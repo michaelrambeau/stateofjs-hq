@@ -1,0 +1,18 @@
+[
+  {
+    "type": "knowledge",
+    "text": [
+      "Native Apps",
+      "React Native",
+      "Ionic",
+      "PhoneGap/Cordova",
+      "NativeScript",
+      "Electron"
+    ]
+  },
+  { "text": "Other mobile/desktop apps solutions" },
+  {
+    "type": "happiness",
+    "text": "On a scale of one to five pencils, how happy are you with the current state of mobile apps?"
+  }
+]

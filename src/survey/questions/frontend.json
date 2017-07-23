@@ -1,0 +1,21 @@
+[
+  {
+    "type": "knowledge",
+    "text": [
+      "React",
+      "Angular",
+      "Angular 2",
+      "Ember",
+      "Vue",
+      "Backbone",
+      "Polymer",
+      "Aurelia",
+      "No Front-End Framework"
+    ]
+  },
+  { "text": "Other Front-End Frameworks" },
+  {
+    "type": "happiness",
+    "text": "On a scale of one to five cats, how happy are you with your current solution for the front-end?"
+  }
+]

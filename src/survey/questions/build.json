@@ -1,0 +1,11 @@
+[
+  {
+    "type": "knowledge",
+    "text": ["Webpack", "Grunt", "Gulp", "Browserify", "NPM", "Rollup"]
+  },
+  { "text": "Other build tools" },
+  {
+    "type": "happiness",
+    "text": "On a scale of one to five droplets, how happy are you with the current state of build tools?"
+  }
+]

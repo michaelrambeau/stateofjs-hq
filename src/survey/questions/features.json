@@ -1,0 +1,18 @@
+[
+  {
+    "type": "feature",
+    "text": [
+      "Server-Side Rendering",
+      "Code Splitting",
+      "Optimistic Updates",
+      "Hot Module Reloading",
+      "Time-Travel Debugging",
+      "Real-Time Operations",
+      "Dead Code Elimination",
+      "Progressive Enhancement",
+      "Service Workers",
+      "Offline Usage",
+      "Other Features"
+    ]
+  }
+]

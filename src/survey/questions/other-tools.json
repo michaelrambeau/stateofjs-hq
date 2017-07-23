@@ -1,0 +1,39 @@
+[
+  {
+    "type": "multi",
+    "text": "Package Managers",
+    "options": ["NPM", "Yarn", "Bower", "Other"]
+  },
+  {
+    "type": "multi",
+    "text": "Utility Libraries",
+    "options": ["jQuery", "Underscore", "Lodash", "Ramda", "Other"]
+  },
+  {
+    "type": "single",
+    "text": "Text Editors",
+    "options": [
+      "Sublime Text",
+      "Atom",
+      "Vim",
+      "Emacs",
+      "Webstorm",
+      "Visual Studio Code",
+      "Notepad++",
+      "Brackets",
+      "Other"
+    ]
+  },
+  {
+    "type": "multi",
+    "text": "Code Linters",
+    "options": [
+      "I don't know what that is",
+      "JSHint",
+      "ESLint",
+      "StandardJS",
+      "Prettier",
+      "Other"
+    ]
+  }
+]
