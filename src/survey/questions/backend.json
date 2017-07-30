@@ -1,19 +1,20 @@
 [
   {
     "type": "knowledge",
-    "text": [
-      "Meteor",
-      "Express",
-      "Koa",
-      "Hapi",
-      "FeathersJS",
-      "Sails",
-      "Loopback",
-      "Keystone"
+    "items": [
+      { "key": "meteor", "text": "Meteor" },
+      { "key": "express", "text": "Express" },
+      { "key": "koa", "text": "Koa" },
+      { "key": "hapi", "text": "Hapi" },
+      { "key": "feathersjs", "text": "FeathersJS" },
+      { "key": "sails", "text": "Sails" },
+      { "key": "loopback", "text": "Loopback" },
+      { "key": "keytone", "text": "Keystone" }
     ]
   },
-  { "text": "Other Front-End Frameworks" },
+  { "key": "other", "text": "Other Front-End Frameworks" },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five trophies, how happy are you with your current back-end solution?"
   }

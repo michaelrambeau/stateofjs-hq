@@ -1,17 +1,18 @@
 [
   {
     "type": "knowledge",
-    "text": [
-      "Plain JavaScript (ES5)",
-      "ES6",
-      "TypeScript",
-      "Flow",
-      "Elm",
-      "ClojureScript",
-      "Reason"
+    "items": [
+      { "key": "plain", "text": "Plain JavaScript (ES5)" },
+      { "key": "es6", "text": "ES6" },
+      { "key": "typescript", "text": "TypeScript" },
+      { "key": "flow", "text": "Flow" },
+      { "key": "elm", "text": "Elm" },
+      { "key": "clojurescript", "text": "ClojureScript" },
+      { "key": "reason", "text": "Reason" }
     ]
   },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five dogs, how happy are you with your current flavor of JavaScript?"
   }

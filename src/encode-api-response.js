@@ -41,10 +41,14 @@ const encodeMetaFields = (surveyDefinition, surveyResponse) =>
 
 function encodeAnswerValue(answer, question, types) {
   const options = getQuestionOptions(question, types)
-  const convert = value =>
-    options ? options.indexOf(value) : formatValue(value)
+  const getOptionValue = value => {
+    return options && options.includes(value)
+      ? options.indexOf(value)
+      : formatValue(value)
+  }
+  const convert = getOptionValue
   const encoded = Array.isArray(answer) ? answer.map(convert) : convert(answer)
-  debug('Encode answer', answer, '=>', encoded, options)
+  debug('Encode answer', answer, '=>', encoded)
   return encoded
 }
 

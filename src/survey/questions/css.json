@@ -1,18 +1,19 @@
 [
   {
     "type": "knowledge",
-    "text": [
-      "Plain CSS",
-      "SASS/SCSS",
-      "Stylus",
-      "LESS",
-      "CSS-in-JS",
-      "Bootstrap",
-      "Foundation"
+    "items": [
+      { "key": "plain", "text": "Plain CSS" },
+      { "key": "sass", "text": "SASS/SCSS" },
+      { "key": "stylus", "text": "Stylus" },
+      { "key": "less", "text": "LESS" },
+      { "key": "css-in-js", "text": "CSS-in-JS" },
+      { "key": "bootstrap", "text": "Bootstrap" },
+      { "key": "foundation", "text": "Foundation" }
     ]
   },
-  { "text": "Other CSS solutions" },
+  { "key": "other", "text": "Other CSS solutions" },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five lightbulbs, how happy are you with the current state of CSS?"
   }

@@ -1,12 +1,12 @@
 const debug = require('debug')('decode')
+const groupBy = require('lodash.groupby')
 const getQuestionOptions = require('./helpers/get-question-options')
 
 const rowToJSON = survey => row => {
   const count = survey.meta.length
-  debug(row.slice(count))
   const meta = decodeMeta(survey, row.slice(0, count))
   const answers = decodeAnswers(survey, row.slice(count))
-  return [].concat(meta, answers)
+  return { meta, answers }
 }
 
 function decodeMeta(survey, rowData) {
@@ -17,14 +17,23 @@ function decodeMeta(survey, rowData) {
 }
 
 function decodeAnswers(survey, rowData) {
-  return rowData.map((item, i) => {
+  // return rawData.reduce((acc, item, i) => {
+  //   const question = survey.questions[i]
+  // })
+  const flatList = rowData.map((item, i) => {
     const question = survey.questions[i]
-    const types = survey.types
+    // const types = survey.types
     return {
       text: question.text,
-      answer: decodeValue(item, question, types)
+      category: question.category,
+      key: question.key,
+      value: item,
+      type: question.type
+      // answer: decodeValue(item, question, types)
     }
   })
+  const byCategory = groupBy(flatList, item => item.category)
+  return byCategory
 }
 
 function decodeValue(value, question, types) {

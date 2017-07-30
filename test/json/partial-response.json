@@ -14,6 +14,72 @@
       "field_id": 53701064
     },
     {
+      "id": "list_ZxUD_choice",
+      "question": "React",
+      "field_id": 53701073,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_nPic_choice",
+      "question": "Angular",
+      "field_id": 53701074,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_Fqkn_choice",
+      "question": "Angular 2",
+      "field_id": 53701075,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_Gk1R_choice",
+      "question": "Ember",
+      "field_id": 53701076,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_Fxzs_choice",
+      "question": "Vue",
+      "field_id": 53701077,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_kT0P_choice",
+      "question": "Backbone",
+      "field_id": 53701078,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_55570167_choice",
+      "question": "Polymer",
+      "field_id": 55570167,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_55570222_choice",
+      "question": "Aurelia",
+      "field_id": 55570222,
+      "group": "group_53701053"
+    },
+    {
+      "id": "list_i5QX_choice",
+      "question": "No Front-End Framework",
+      "field_id": 53701072,
+      "group": "group_53701053"
+    },
+    {
+      "id": "textarea_f0gX",
+      "question": "Other Front-End Frameworks",
+      "field_id": 53701137,
+      "group": "group_53701053"
+    },
+    {
+      "id": "rating_y0kW",
+      "question": "On a scale of one to five cats, how happy are you with your current solution for the front-end?",
+      "field_id": 53701129,
+      "group": "group_53701053"
+    },
+    {
       "id": "list_55680622_choice_69899414",
       "question": "Package Managers",
       "field_id": 55680622,
@@ -140,8 +206,19 @@
         "referrer": null
       },
       "answers": {
+        "list_ZxUD_choice": "I've USED it before, and WOULD use it again",
+        "list_nPic_choice": "I've HEARD of it, and am NOT interested",
+        "list_Fqkn_choice": "I've HEARD of it, and WOULD like to learn it",
+        "list_Gk1R_choice": "I've HEARD of it, and am NOT interested",
+        "list_Fxzs_choice": "I've USED it before, and WOULD use it again",
+        "list_kT0P_choice": "I've HEARD of it, and WOULD like to learn it",
+        "list_55570167_choice": "I've never heard of it",
+        "list_55570222_choice": "I've HEARD of it, and WOULD like to learn it",
+        "list_i5QX_choice": "I've USED it before, and WOULD use it again",
+        "rating_y0kW": "4",
         "list_55680622_choice_69899414": "NPM",
         "list_55680622_choice_69899415": "Yarn",
+        "list_55680622_other": "PNPM",
         "list_55677344_choice_69896647": "jQuery",
         "list_Gwo0_choice": "Sublime Text",
         "list_55677233_choice_69895067": "I don't know what that is"

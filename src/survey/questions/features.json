@@ -1,18 +1,18 @@
 [
   {
     "type": "feature",
-    "text": [
-      "Server-Side Rendering",
-      "Code Splitting",
-      "Optimistic Updates",
-      "Hot Module Reloading",
-      "Time-Travel Debugging",
-      "Real-Time Operations",
-      "Dead Code Elimination",
-      "Progressive Enhancement",
-      "Service Workers",
-      "Offline Usage",
-      "Other Features"
+    "items": [
+      { "key": "ssr", "text": "Server-Side Rendering" },
+      { "key": "split", "text": "Splitting" },
+      { "key": "optimistic", "text": "Optimistic Updates" },
+      { "key": "hot", "text": "Hot Module Reloading" },
+      { "key": "timetravel", "text": "Time-Travel Debugging" },
+      { "key": "realtime", "text": "Real-Time Operations" },
+      { "key": "deadcode", "text": "Dead Code Elimination" },
+      { "key": "progressive", "text": "Progressive Enhancement" },
+      { "key": "workers", "text": "Service Workers" },
+      { "key": "offline", "text": "Offline Usage" },
+      { "key": "other", "text": "Other Features" }
     ]
   }
 ]

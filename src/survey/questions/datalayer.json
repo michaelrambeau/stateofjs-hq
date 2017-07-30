@@ -1,19 +1,20 @@
 [
   {
     "type": "knowledge",
-    "text": [
-      "REST API",
-      "Redux",
-      "MobX",
-      "GraphQL",
-      "Relay/Relay Modern",
-      "Falcor",
-      "Apollo",
-      "Firebase"
+    "items": [
+      { "key": "rest", "text": "REST API" },
+      { "key": "redux", "text": "Redux" },
+      { "key": "mobx", "text": "MobX" },
+      { "key": "graphql", "text": "GraphQL" },
+      { "key": "relay", "text": "Relay/Relay Modern" },
+      { "key": "falcor", "text": "Falcor" },
+      { "key": "apollo", "text": "Apollo" },
+      { "key": "firebase", "text": "Firebase" }
     ]
   },
-  { "text": "Other Data Management Solutions" },
+  { "key": "other", "text": "Other Data Management Solutions" },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five thunderbolts, how happy are you with your current solution for state management?"
   }

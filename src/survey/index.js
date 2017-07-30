@@ -18,15 +18,20 @@ function createSurvey(categories) {
     const categoryQuestions = allQuestions[category]
     if (!categoryQuestions)
       throw new Error(`No questions found for the category "${category}"`)
-    return acc.concat(categoryQuestions)
+    return acc.concat(
+      categoryQuestions.map(q => Object.assign({}, q, { category }))
+    )
   }, [])
   const questionFlatList = flatten(
     questions.map(
       question =>
-        Array.isArray(question.text)
-          ? question.text.map(item =>
-              Object.assign({}, question, { text: item })
-            )
+        Array.isArray(question.items)
+          ? question.items.map(item => ({
+              text: item.text,
+              key: item.key,
+              category: question.category,
+              type: question.type
+            }))
           : [question]
     )
   )

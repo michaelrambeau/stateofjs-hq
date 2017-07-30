@@ -1,15 +1,18 @@
 [
   {
+    "key": "package-managers",
     "type": "multi",
     "text": "Package Managers",
     "options": ["NPM", "Yarn", "Bower", "Other"]
   },
   {
+    "key": "utils",
     "type": "multi",
     "text": "Utility Libraries",
     "options": ["jQuery", "Underscore", "Lodash", "Ramda", "Other"]
   },
   {
+    "key": "ide",
     "type": "single",
     "text": "Text Editors",
     "options": [
@@ -25,6 +28,7 @@
     ]
   },
   {
+    "key": "lint",
     "type": "multi",
     "text": "Code Linters",
     "options": [

@@ -1,20 +1,21 @@
 [
   {
     "type": "knowledge",
-    "text": [
-      "React",
-      "Angular",
-      "Angular 2",
-      "Ember",
-      "Vue",
-      "Backbone",
-      "Polymer",
-      "Aurelia",
-      "No Front-End Framework"
+    "items": [
+      { "key": "react", "text": "React" },
+      { "key": "angular-1", "text": "Angular" },
+      { "key": "angular-2", "text": "Angular 2" },
+      { "key": "ember", "text": "Ember" },
+      { "key": "vue", "text": "Vue" },
+      { "key": "backbone", "text": "Backbone" },
+      { "key": "ember", "text": "Polymer" },
+      { "key": "aurelia", "text": "Aurelia" },
+      { "key": "no-framework", "text": "No Front-End Framework" }
     ]
   },
-  { "text": "Other Front-End Frameworks" },
+  { "key": "other", "text": "Other Front-End Frameworks" },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five cats, how happy are you with your current solution for the front-end?"
   }

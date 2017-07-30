@@ -4,6 +4,7 @@
   "description": "Parsing StateOfJS 2017 survey answers",
   "main": "index.js",
   "dependencies": {
+    "caporal": "^0.7.0",
     "csv": "^1.1.1",
     "debug": "^2.6.8",
     "fs-extra": "^4.0.0",
@@ -12,7 +13,11 @@
     "lodash.groupby": "^4.6.0",
     "lodash.mapvalues": "^4.6.0",
     "lodash.times": "^4.3.2",
-    "lodash.uniq": "^4.5.0"
+    "lodash.uniq": "^4.5.0",
+    "numeral": "^2.0.6",
+    "p-reduce": "^1.0.0",
+    "pretty-bytes": "^4.0.2",
+    "ramda": "^0.24.1"
   },
   "devDependencies": {
     "axios": "^0.16.2",
@@ -30,7 +35,9 @@
   "scripts": {
     "test": "jest",
     "test.watch": "jest --watch",
-    "debug": "jest test/encode-survey-partial.test.js --watch"
+    "debug": "jest test/aggregate.test.js --watch",
+    "debug1": "jest test/*-full.test.js --watch",
+    "clean": "rm -rf output"
   },
   "author": "Michael Rambeau",
   "license": "MIT",

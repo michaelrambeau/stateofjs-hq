@@ -1,10 +1,18 @@
 [
   {
     "type": "knowledge",
-    "text": ["Mocha", "Jasmine", "Enzyme", "Jest", "Tape", "Ava"]
+    "items": [
+      { "key": "mocha", "text": "Mocha" },
+      { "key": "jasmine", "text": "Jasmine" },
+      { "key": "enzyme", "text": "Enzyme" },
+      { "key": "jest", "text": "Jest" },
+      { "key": "tape", "text": "Tape" },
+      { "key": "ava", "text": "Ava" }
+    ]
   },
-  { "text": "Other testing frameworks" },
+  { "key": "other", "text": "Other testing frameworks" },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five severed hands, how happy are you with the current state of JavaScript testing?"
   }

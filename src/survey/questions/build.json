@@ -1,10 +1,18 @@
 [
   {
     "type": "knowledge",
-    "text": ["Webpack", "Grunt", "Gulp", "Browserify", "NPM", "Rollup"]
+    "items": [
+      { "key": "webpack", "text": "Webpack" },
+      { "key": "grunt", "text": "Grunt" },
+      { "key": "gulp", "text": "Gulp" },
+      { "key": "browserify", "text": "Browserify" },
+      { "key": "npm", "text": "NPM" },
+      { "key": "rollup", "text": "Rollup" }
+    ]
   },
-  { "text": "Other build tools" },
+  { "key": "other", "text": "Other build tools" },
   {
+    "key": "happy",
     "type": "happiness",
     "text": "On a scale of one to five droplets, how happy are you with the current state of build tools?"
   }
