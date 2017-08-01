@@ -10,10 +10,10 @@ const rowToJSON = survey => row => {
 }
 
 function decodeMeta(survey, rowData) {
-  return rowData.map((item, i) => {
+  return rowData.reduce((acc, item, i) => {
     const metaDefinition = survey.meta[i]
-    return { name: metaDefinition.name, value: item }
-  })
+    return Object.assign({}, acc, { [metaDefinition.name]: item })
+  }, {})
 }
 
 function decodeAnswers(survey, rowData) {

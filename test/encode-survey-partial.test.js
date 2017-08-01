@@ -37,7 +37,7 @@ test('It should encode the response from the API', () => {
   const decoded = rowToJSON(survey)(encoded)
   expect(Object.keys(decoded)).toEqual(['meta', 'answers'])
   // Check meta values
-  expect(decoded.meta[3]).toEqual({ name: 'device', value: 'desktop' })
+  expect(decoded.meta.device).toEqual('desktop')
   expect(decoded.answers.frontend[0]).toEqual({
     category: 'frontend',
     key: 'react',

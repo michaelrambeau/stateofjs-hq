@@ -38,6 +38,7 @@ function updateAnswerCounter(state, { key, value, type }) {
   switch (type) {
     case 'multi':
     case 'single':
+      if (value === '') return increment(state, 'EMPTY')
       if (typeof value === 'string')
         return incrementNestedPath(state, 'other', value)
       return Object.assign({}, state, {
@@ -63,7 +64,10 @@ function incrementNestedPath(state, path, key) {
 }
 
 function increment(state, path) {
-  const key = Array.isArray(path) ? path[0] : path
+  debug('> inc', state, path)
+  if (Array.isArray(path) && path.length === 0) return state
+  const stringPath = Array.isArray(path) ? path[0] : path
+  const key = stringPath
   return Object.assign({}, state, {
     [key]: state.key ? state.key + 1 : 1
   })

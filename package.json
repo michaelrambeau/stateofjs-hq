@@ -35,8 +35,9 @@
   "scripts": {
     "test": "jest",
     "test.watch": "jest --watch",
-    "debug": "jest test/aggregate.test.js --watch",
+    "debug": "jest test/aggregate*.test.js --watch",
     "debug1": "jest test/*-full.test.js --watch",
+    "parse": "jest test/*parse.test.js --watch",
     "clean": "rm -rf output"
   },
   "author": "Michael Rambeau",
