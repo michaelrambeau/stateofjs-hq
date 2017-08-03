@@ -14,6 +14,12 @@ prog
     prog.INT,
     10
   )
+  .option(
+    '--all <boolean>',
+    'Set to true to download all result pages',
+    prog.BOOL,
+    false
+  )
   .option('--start <number>', 'Start upload from number', prog.INT, 1)
   .action((args, options, logger) => {
     logger.info('Start downloading the survey results', options)

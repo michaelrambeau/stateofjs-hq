@@ -59,8 +59,9 @@ function incrementArrayItem(state, values) {
 }
 
 function incrementNestedPath(state, path, key) {
-  const path1 = increment(state.path1, key)
-  return Object.assign({}.state, { path1 })
+  debug('incrementNestedPath', state, path, key)
+  const subState = increment(state[path], key)
+  return Object.assign({}, state, { [path]: subState })
 }
 
 function increment(state, path) {

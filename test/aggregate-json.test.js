@@ -1,12 +1,5 @@
-const fs = require('fs-extra')
-const path = require('path')
-const csv = require('csv')
-const times = require('lodash.times')
-const { promisify } = require('util')
-const parse = promisify(csv.parse)
-const pReduce = require('p-reduce')
-const debug = require('debug')('agg')
-// const aggregate = require('../src/aggregate')
+// const debug = require('debug')('agg')
+
 const getInitialState = require('../src/aggregation/initial-state')
 const counterReducer = require('../src/aggregation/reducer')
 
@@ -161,4 +154,25 @@ test('Answers reducer - Opinion', () => {
   const data = [opinionAnswer(4), opinionAnswer(1), opinionAnswer(4)]
   const state = data.reduce(counterReducer, initialState)
   expect(state.answers.opinion['too-long']).toEqual([0, 1, 0, 0, 2])
+})
+
+const ideAnswer = value => ({
+  answers: {
+    otherTools: [
+      {
+        category: 'otherTools',
+        key: 'ide',
+        type: 'single',
+        value
+      }
+    ]
+  },
+  meta: {}
+})
+
+test('Answers reducer - Favorite IDE', () => {
+  const initialState = getInitialState()
+  const data = [ideAnswer('PyCharm')]
+  const state = data.reduce(counterReducer, initialState)
+  expect(state.answers.otherTools['ide'].other).toEqual({ PyCharm: 1 })
 })

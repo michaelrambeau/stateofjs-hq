@@ -16,6 +16,7 @@
     "lodash.uniq": "^4.5.0",
     "numeral": "^2.0.6",
     "p-reduce": "^1.0.0",
+    "p-whilst": "^1.0.0",
     "pretty-bytes": "^4.0.2",
     "ramda": "^0.24.1"
   },
@@ -35,9 +36,10 @@
   "scripts": {
     "test": "jest",
     "test.watch": "jest --watch",
-    "debug": "jest test/aggregate*.test.js --watch",
+    "debug": "jest test/aggregate-json.test.js --watch",
     "debug1": "jest test/*-full.test.js --watch",
     "parse": "jest test/*parse.test.js --watch",
+    "download": "jest test/*download.test.js --watch",
     "clean": "rm -rf output"
   },
   "author": "Michael Rambeau",

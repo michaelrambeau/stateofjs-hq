@@ -6,3 +6,4 @@ build
 *.csv
 backup
 package-lock.json
+output
