@@ -38,17 +38,11 @@ test('It should encode the response from the API', () => {
   expect(Object.keys(decoded)).toEqual(['meta', 'answers'])
   // Check meta values
   expect(decoded.meta.device).toEqual('desktop')
-  expect(decoded.answers.frontend[0]).toEqual({
-    category: 'frontend',
-    key: 'react',
-    text: 'React',
+  expect(decoded.answers.frontend.react).toEqual({
     value: 3,
     type: 'knowledge'
   })
-  expect(decoded.answers.otherTools[0]).toEqual({
-    category: 'otherTools',
-    key: 'package-managers',
-    text: 'Package Managers',
+  expect(decoded.answers.otherTools['package-managers']).toEqual({
     value: [0, 1, 'PNPM'],
     type: 'multi'
   })

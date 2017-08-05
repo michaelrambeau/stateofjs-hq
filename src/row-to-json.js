@@ -1,5 +1,7 @@
 const debug = require('debug')('decode')
 const groupBy = require('lodash.groupby')
+const mapValues = require('lodash.mapvalues')
+const pick = require('lodash.pick')
 const getQuestionOptions = require('./helpers/get-question-options')
 
 const rowToJSON = survey => row => {
@@ -33,7 +35,13 @@ function decodeAnswers(survey, rowData) {
     }
   })
   const byCategory = groupBy(flatList, item => item.category)
-  return byCategory
+  return mapValues(byCategory, categoryQuestions =>
+    categoryQuestions.reduce(
+      (acc, item) =>
+        Object.assign({}, acc, { [item.key]: pick(item, ['value', 'type']) }),
+      {}
+    )
+  )
 }
 
 function decodeValue(value, question, types) {

@@ -11,12 +11,6 @@ function metaFieldReducer(state, { name, value }) {
   })
 }
 
-// function answersReducer(state, { key, value, category, type }) {
-//   return Object.assign({}, state[category], {
-//     [key]: updatedCounters
-//   })
-// }
-
 function answersReducer(state, { key, value, category, type }) {
   debug('reduce item', { key, value, category, type })
   const counters = state[key]
@@ -49,7 +43,7 @@ function updateAnswerCounter(state, { key, value, type }) {
         )
       })
     default:
-      return {}
+      return increment(state, value)
   }
 }
 
@@ -59,16 +53,14 @@ function incrementArrayItem(state, values) {
 }
 
 function incrementNestedPath(state, path, key) {
-  debug('incrementNestedPath', state, path, key)
   const subState = increment(state[path], key)
   return Object.assign({}, state, { [path]: subState })
 }
 
-function increment(state, path) {
-  debug('> inc', state, path)
+function increment(state = {}, path) {
   if (Array.isArray(path) && path.length === 0) return state
   const stringPath = Array.isArray(path) ? path[0] : path
-  const key = stringPath
+  const key = stringPath || 'EMPTY'
   return Object.assign({}, state, {
     [key]: state.key ? state.key + 1 : 1
   })
@@ -76,18 +68,15 @@ function increment(state, path) {
 
 function counterReducer(state, data) {
   const meta = Object.keys(data.meta)
+    .filter(key => !['date'].includes(key))
     .map(key => ({ name: key, value: data.meta[key] }))
     .reduce(metaFieldReducer, state.meta)
-  // const answers = mapValues(data.answers, (categoryAnswers, category) => {
-  //   return categoryAnswers.reduce(answersReducer, state.answers[category])
-  // })
   const answers = mapValues(state.answers, (categoryAnswers, category) => {
-    // debug('answers', categoryAnswers)
     if (!data.answers || !data.answers[category]) return categoryAnswers
-    return data.answers[category].reduce(
-      answersReducer,
-      state.answers[category]
-    )
+    return Object.keys(data.answers[category])
+      .filter(key => !['email', 'comments'].includes(key))
+      .map(key => Object.assign({}, data.answers[category][key], { key }))
+      .reduce(answersReducer, state.answers[category])
   })
   return {
     meta,

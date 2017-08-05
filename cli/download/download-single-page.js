@@ -57,7 +57,8 @@ async function downloadSinglePage({ limit, start = 1, logger }) {
       'mobile',
       'otherTools',
       'features',
-      'opinion'
+      'opinion',
+      'aboutYou'
     ])
     const encodedResponses = responses.map(response =>
       encode(survey, questions)(response)

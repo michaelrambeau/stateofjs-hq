@@ -46,27 +46,24 @@ test('Meta reducer', () => {
 
 const likeReact = {
   answers: {
-    frontend: [
-      {
-        category: 'frontend',
-        key: 'react',
-        text: 'React',
-        value: 3
+    frontend: {
+      react: {
+        value: 3,
+        type: 'knowledge'
       }
-    ]
+    }
   },
   meta: {}
 }
 
 const noMoreAngular = {
   answers: {
-    frontend: [
-      {
-        category: 'frontend',
-        key: 'angular-1',
-        value: 4
+    frontend: {
+      'angular-1': {
+        value: 4,
+        type: 'knowledge'
       }
-    ]
+    }
   },
   meta: {}
 }
@@ -84,14 +81,9 @@ test('Answers reducer - Frontend questions', () => {
 
 const multichoiceAnswer = value => ({
   answers: {
-    otherTools: [
-      {
-        category: 'otherTools',
-        key: 'package-managers',
-        type: 'multi',
-        value
-      }
-    ]
+    otherTools: {
+      'package-managers': { value, type: 'multi' }
+    }
   },
   meta: {}
 })
@@ -137,14 +129,9 @@ test('Answers reducer - Multichoice - 2 values selected and a custom choice', ()
 
 const opinionAnswer = value => ({
   answers: {
-    opinion: [
-      {
-        category: 'opinion',
-        key: 'too-long',
-        type: 'opinion',
-        value
-      }
-    ]
+    opinion: {
+      'too-long': { value, type: 'single' }
+    }
   },
   meta: {}
 })
@@ -158,14 +145,9 @@ test('Answers reducer - Opinion', () => {
 
 const ideAnswer = value => ({
   answers: {
-    otherTools: [
-      {
-        category: 'otherTools',
-        key: 'ide',
-        type: 'single',
-        value
-      }
-    ]
+    otherTools: {
+      ide: { value, type: 'single' }
+    }
   },
   meta: {}
 })
@@ -175,4 +157,20 @@ test('Answers reducer - Favorite IDE', () => {
   const data = [ideAnswer('PyCharm')]
   const state = data.reduce(counterReducer, initialState)
   expect(state.answers.otherTools['ide'].other).toEqual({ PyCharm: 1 })
+})
+
+const fromAnswer = value => ({
+  answers: {
+    aboutYou: {
+      from: { value, type: 'text' }
+    }
+  },
+  meta: {}
+})
+
+test('Answers reducer - About you - From', () => {
+  const initialState = getInitialState()
+  const data = [fromAnswer('Twitter')]
+  const state = data.reduce(counterReducer, initialState)
+  expect(state.answers.aboutYou.from).toEqual({ Twitter: 1 })
 })

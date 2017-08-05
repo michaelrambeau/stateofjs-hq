@@ -34,14 +34,15 @@ function getInitialState() {
     'aboutYou'
   ]
   const survey = createSurvey(categories)
-  const meta = survey.meta.reduce(
-    (acc, item) => Object.assign({}, acc, { [item.name]: {} }),
-    {}
-  )
+  const meta = survey.meta
+    .filter(item => !['date'].includes(item.name))
+    .reduce((acc, item) => Object.assign({}, acc, { [item.name]: {} }), {})
   const groupByCategory = R.groupBy(R.prop('category'))
   const groupByKey = R.reduce(
     (acc, item) =>
-      Object.assign({}, acc, { [item.key]: questionToDefaultAgg(item) }),
+      ['email', 'comments'].includes(item.key)
+        ? acc
+        : Object.assign({}, acc, { [item.key]: questionToDefaultAgg(item) }),
     {}
   )
   const answers = R.compose(R.mapObjIndexed(groupByKey), groupByCategory)(

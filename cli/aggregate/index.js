@@ -31,7 +31,8 @@ async function main(options, logger) {
 
 function writeResult(json, filename) {
   const filepath = path.join(process.cwd(), 'output', 'aggregations', filename)
-  return fs.writeJson(filepath, json)
+  console.log('Writing...', filepath)
+  return fs.outputJson(filepath, json)
 }
 
 module.exports = main

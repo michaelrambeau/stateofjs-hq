@@ -12,6 +12,7 @@
     "lodash.flatten": "^4.4.0",
     "lodash.groupby": "^4.6.0",
     "lodash.mapvalues": "^4.6.0",
+    "lodash.pick": "^4.4.0",
     "lodash.times": "^4.3.2",
     "lodash.uniq": "^4.5.0",
     "numeral": "^2.0.6",
@@ -37,9 +38,6 @@
     "test": "jest",
     "test.watch": "jest --watch",
     "debug": "jest test/aggregate-json.test.js --watch",
-    "debug1": "jest test/*-full.test.js --watch",
-    "parse": "jest test/*parse.test.js --watch",
-    "download": "jest test/*download.test.js --watch",
     "clean": "rm -rf output"
   },
   "author": "Michael Rambeau",
