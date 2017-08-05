@@ -3,7 +3,7 @@ const { promisify } = require('util')
 const parse = promisify(csv.parse)
 
 function parseValue(source) {
-  if (/\[.+\]/.test(source)) {
+  if (/^\[.+\]$/.test(source)) {
     return eval(source)
   }
   return source

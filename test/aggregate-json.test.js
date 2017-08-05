@@ -172,5 +172,5 @@ test('Answers reducer - About you - From', () => {
   const initialState = getInitialState()
   const data = [fromAnswer('Twitter')]
   const state = data.reduce(counterReducer, initialState)
-  expect(state.answers.aboutYou.from).toEqual({ Twitter: 1 })
+  expect(state.answers.aboutYou.from).toEqual({ twitter: 1 })
 })

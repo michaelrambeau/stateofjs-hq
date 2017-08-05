@@ -17,7 +17,7 @@ const { TYPEFORM_API_KEY, TYPEFORM_UID } = process.env
 async function downloadTypeformData(options) {
   const { limit = 1000, offset = 0, uid, key, logger } = options
   const url = `https://api.typeform.com/v1/form/${uid}?key=${key}&completed=true&limit=${limit}&offset=${offset}`
-  logger.info('Download API request', { offset, limit })
+  logger.info('Typeform API request', { offset, limit })
   const response = await axios.get(url)
   return response.data
 }
@@ -70,7 +70,11 @@ async function downloadSinglePage({ limit, start = 1, logger }) {
     })
     return { completed }
   } catch (err) {
-    console.error(err)
+    logger.error(
+      'Failed to download survey results',
+      { limit, start },
+      err.message
+    )
   }
 }
 

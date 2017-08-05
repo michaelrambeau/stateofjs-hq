@@ -27,6 +27,10 @@ function answersReducer(state, { key, value, category, type }) {
 
 const ensureArray = a => (Array.isArray(a) ? a : [a])
 
+function normalizeValue(value = '', key) {
+  return value.toString().toLowerCase()
+}
+
 function updateAnswerCounter(state, { key, value, type }) {
   if (Array.isArray(state)) return incrementArrayItem(state, value)
   switch (type) {
@@ -43,7 +47,7 @@ function updateAnswerCounter(state, { key, value, type }) {
         )
       })
     default:
-      return increment(state, value)
+      return increment(state, normalizeValue(value, key))
   }
 }
 

@@ -22,17 +22,23 @@ async function main(options, logger) {
     ])
     const folderPath = path.join(process.cwd(), 'output', 'responses')
     const result = await aggregateFolder({ survey, folderPath, logger })
-    await writeResult(result, 'agg.json')
-    logger.info('THE END', result)
+    await writeResult(result)
+    logger.info('THE END')
   } catch (err) {
     logger.error('Unexpected error!', err.stack)
   }
 }
 
-function writeResult(json, filename) {
+const writeJson = filename => agg => {
   const filepath = path.join(process.cwd(), 'output', 'aggregations', filename)
-  console.log('Writing...', filepath)
-  return fs.outputJson(filepath, json)
+  return fs.outputJson(filepath, agg)
+}
+
+function writeResult(agg) {
+  // return await fs.outputJson(filepath, agg)
+  return Promise.all(
+    Object.keys(agg).map(key => writeJson(`${key}.json`)(agg[key]))
+  )
 }
 
 module.exports = main
