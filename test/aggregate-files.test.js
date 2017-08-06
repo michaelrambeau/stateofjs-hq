@@ -70,7 +70,7 @@ test('Aggregate the folder content', () => {
   return aggregateFolder({ folderPath, survey }).then(state => {
     expect(Object.keys(state)).toEqual(['meta', 'answers'])
     expect(state.meta.location).toEqual({
-      '': 1,
+      EMPTY: 2,
       Australia: 1,
       Canada: 1,
       Germany: 1,
@@ -80,8 +80,7 @@ test('Aggregate the folder content', () => {
       Spain: 1,
       Sweden: 1,
       Ukraine: 1,
-      'United States': 3,
-      undefined: 1
+      'United States': 3
     })
     expect(state.meta.browser).toEqual({ Chrome: 12, Firefox: 2 })
   })

@@ -66,11 +66,12 @@ function incrementNestedPath(state, path, key) {
 }
 
 function increment(state = {}, path) {
+  debug('> inc', state, path)
   if (Array.isArray(path) && path.length === 0) return state
   const stringPath = Array.isArray(path) ? path[0] : path
   const key = stringPath || 'EMPTY'
   return Object.assign({}, state, {
-    [key]: state.key ? state.key + 1 : 1
+    [key]: state[path] ? state[path] + 1 : 1
   })
 }
 

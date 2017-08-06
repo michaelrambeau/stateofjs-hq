@@ -96,7 +96,6 @@ test('It should encode the response from the API', () => {
     value: 2,
     type: 'opinion'
   })
-  console.log(decoded.answers.aboutYou)
   expect(decoded.answers.aboutYou.experience).toEqual({
     value: 2,
     type: 'single'

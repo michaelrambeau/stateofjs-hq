@@ -1,5 +1,3 @@
-// const debug = require('debug')('agg')
-
 const getInitialState = require('../src/aggregation/initial-state')
 const counterReducer = require('../src/aggregation/reducer')
 
@@ -44,39 +42,57 @@ test('Meta reducer', () => {
   expect(updatedState.meta.location).toEqual({ Osaka: 2, Toulouse: 1 })
 })
 
-const likeReact = {
+const reactAnswer = value => ({
   answers: {
     frontend: {
       react: {
-        value: 3,
+        value,
         type: 'knowledge'
       }
     }
   },
   meta: {}
-}
+})
 
-const noMoreAngular = {
+const angularAnswer = value => ({
   answers: {
     frontend: {
       'angular-1': {
-        value: 4,
+        value,
         type: 'knowledge'
       }
     }
   },
   meta: {}
-}
+})
 
-test('Answers reducer - Frontend questions', () => {
+test('Answers reducer - Frontend questions - React and Angular', () => {
   const initialState = getInitialState()
-  const data = [likeReact, likeReact]
+  const data = [reactAnswer(3), reactAnswer(3)]
   const state = data.reduce(counterReducer, initialState)
   expect(state.answers.frontend['angular-1']).toEqual([0, 0, 0, 0, 0])
   expect(state.answers.frontend.react).toEqual([0, 0, 0, 2, 0])
-  const nextState = [noMoreAngular].reduce(counterReducer, state)
+  const nextState = [angularAnswer(4)].reduce(counterReducer, state)
   expect(nextState.answers.frontend.react).toEqual([0, 0, 0, 2, 0])
   expect(nextState.answers.frontend['angular-1']).toEqual([0, 0, 0, 0, 1])
+})
+
+const otherAnswer = value => ({
+  answers: {
+    frontend: {
+      other: {
+        value
+      }
+    }
+  },
+  meta: {}
+})
+
+test('Answers reducer - Frontend questions - Other frameworks', () => {
+  const initialState = getInitialState()
+  const data = [otherAnswer('inferno'), otherAnswer('inferno')]
+  const state = data.reduce(counterReducer, initialState)
+  expect(state.answers.frontend['other']).toEqual({ inferno: 2 })
 })
 
 const multichoiceAnswer = value => ({
