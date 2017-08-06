@@ -38,7 +38,8 @@
     "test": "jest",
     "test.watch": "jest --watch",
     "debug": "jest test/aggregate-json.test.js --watch",
-    "clean": "rm -rf output"
+    "clean": "rm -rf output",
+    "deploy": "now deploy ./public --name stateofjs --public"
   },
   "author": "Michael Rambeau",
   "license": "MIT",

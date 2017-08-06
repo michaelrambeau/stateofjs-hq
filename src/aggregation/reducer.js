@@ -1,10 +1,14 @@
 const debug = require('debug')('agg')
 const mapValues = require('lodash.mapvalues')
 
+const emptyValues = ['undefined', '']
+const isEmptyValue = value => emptyValues.includes(value.toLowerCase())
+
 function metaFieldReducer(state, { name, value }) {
-  const count = state[name][value]
+  const key = isEmptyValue(value) ? 'EMPTY' : value
+  const count = state[name][key]
   const fieldCounters = Object.assign({}, state[name], {
-    [value]: count ? count + 1 : 1
+    [key]: count ? count + 1 : 1
   })
   return Object.assign({}, state, {
     [name]: fieldCounters

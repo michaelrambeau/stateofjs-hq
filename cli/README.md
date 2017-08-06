@@ -61,7 +61,7 @@ The following script will loop through all files inside `output/responses` and c
 node cli aggregate
 ```
 
-The following files will be created:
+As a result of the aggregation, the following files will be created:
 
 ```
 ./output
