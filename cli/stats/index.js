@@ -2,20 +2,22 @@ const path = require('path')
 const fs = require('fs-extra')
 
 const metaSource = require('../../output/aggregations/meta.json')
-const { sortByValue } = require('../../src/sort-helpers')
-// const answersSource = require('./output/aggregation/meta.json')
+const answersSource = require('../../output/aggregations/answers.json')
+const { sortMeta, sortAnswers } = require('../../src/sort-helpers')
 
 async function main(options, logger) {
-  const meta = Object.keys(metaSource)
-    .map(key => metaSource[key])
-    .map(branch => sortByValue(branch))
-  await writeJson('meta.json', meta)
-  logger.info('THE END', meta)
+  const meta = sortMeta(metaSource)
+  const answers = sortAnswers(answersSource)
+  await Promise.all([
+    writeJson('meta.json')(meta),
+    writeJson('answers.json')(answers)
+  ])
+  logger.info('THE END', answers.frontend.other)
 }
 
-const writeJson = (filename, data) => {
-  const filepath = path.join(process.cwd(), 'output', 'dataset', filename)
-  return fs.outputJson(filepath, data)
+const writeJson = filename => data => {
+  const filepath = path.join(process.cwd(), 'public', filename)
+  return fs.outputJson(filepath, data, { spaces: 2 })
 }
 
 module.exports = main

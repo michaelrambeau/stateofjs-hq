@@ -1,4 +1,4 @@
-const { sortByValue } = require('../src/sort-helpers')
+const { sortByValue, sortAnswers, sortMeta } = require('../src/sort-helpers')
 
 test('Sort a hashmap by count', () => {
   const input = {
@@ -9,4 +9,58 @@ test('Sort a hashmap by count', () => {
   const output = sortByValue(input)
   expect(Object.keys(output)).toEqual(['React', 'AngularJS', 'Backbone'])
   expect(output).toEqual({ React: 200, AngularJS: 100, Backbone: 10 })
+})
+
+test('Sort `meta` values', () => {
+  const meta = {
+    country: {
+      France: 1,
+      Japan: 2
+    },
+    city: {
+      Osaka: 2,
+      Toulouse: 10,
+      Paris: 5
+    }
+  }
+
+  const expected = {
+    country: {
+      Japan: 2,
+      France: 1
+    },
+    city: {
+      Toulouse: 10,
+      Osaka: 2,
+      Paris: 5
+    }
+  }
+  const sorted = sortMeta(meta)
+  expect(sorted).toEqual(expected)
+})
+
+test('Sort `other` question', () => {
+  const answers = {
+    frontend: {
+      react: { x: 'y' },
+      other: {
+        AngularJS: 100,
+        Backbone: 10,
+        React: 200
+      }
+    }
+  }
+  const expected = {
+    frontend: {
+      react: { x: 'y' },
+      other: { React: 200, AngularJS: 100, Backbone: 10 }
+    }
+  }
+  const sorted = sortAnswers(answers)
+  expect(Object.keys(sorted.frontend.other)).toEqual([
+    'React',
+    'AngularJS',
+    'Backbone'
+  ])
+  expect(sorted).toEqual(expected)
 })

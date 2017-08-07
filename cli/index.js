@@ -33,7 +33,7 @@ prog
   })
   .command('stats', 'Generate statictics from the aggregated files')
   .action((args, options, logger) => {
-    logger.info('Start the statictics generation', options)
+    logger.info('Start generating statistics', options)
     stats(options, logger)
   })
 
