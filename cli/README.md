@@ -69,3 +69,15 @@ As a result of the aggregation, the following files will be created:
 │   ├── answers.json
 │   └── meta.json
 ```
+
+## STEP 3: Generate final JSON files, to be uploaded
+
+```
+node cli stats
+```
+
+```
+public
+├── answers.json
+└── meta.json
+```
