@@ -1,4 +1,4 @@
-// const debug = require('debug')('csv')
+const debug = require('debug')('csv')
 const path = require('path')
 const pReduce = require('p-reduce')
 
@@ -35,6 +35,13 @@ test('Read only the first CSV file', () => {
     expect(Object.keys(state)).toEqual(['meta', 'answers'])
     expect(state.meta.location).toEqual({ Spain: 1, 'United States': 1 })
     expect(state.meta.browser).toEqual({ Chrome: 2 })
+    expect(state.answers.frontend.react).toEqual([0, 0, 0, 2, 0])
+    expect(state.answers.frontend.react).toEqual([0, 0, 0, 2, 0])
+    expect(state.answers.frontend.other).toEqual({
+      preact: 1,
+      inferno: 1,
+      EMPTY: 1
+    })
   })
 })
 

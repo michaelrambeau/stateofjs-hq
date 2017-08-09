@@ -15,14 +15,15 @@ function metaFieldReducer(state, { name, value }) {
   })
 }
 
-function answersReducer(state, { key, value, category, type }) {
+function answersReducer(state, { key, value, category, type, words }) {
   debug('reduce item', { key, value, category, type })
   const counters = state[key]
   const updatedCounters = updateAnswerCounter(counters, {
     key,
     value,
     category,
-    type
+    type,
+    words
   })
   return Object.assign({}, state, {
     [key]: updatedCounters
@@ -35,7 +36,7 @@ function normalizeValue(value = '', key) {
   return value.toString().toLowerCase()
 }
 
-function updateAnswerCounter(state, { key, value, type }) {
+function updateAnswerCounter(state, { key, value, type, words }) {
   if (Array.isArray(state)) return incrementArrayItem(state, value)
   switch (type) {
     case 'multi':
@@ -51,13 +52,20 @@ function updateAnswerCounter(state, { key, value, type }) {
         )
       })
     default:
-      return increment(state, normalizeValue(value, key))
+      return Array.isArray(value)
+        ? incrementKeywords(state, value)
+        : increment(state, normalizeValue(value, key, words))
   }
 }
 
 function incrementArrayItem(state, values) {
   const array = ensureArray(values)
   return state.map((n, index) => (array.includes(index) ? n + 1 : n))
+}
+
+function incrementKeywords(state, values) {
+  debug('Increment array of values', values)
+  return values.reduce((acc, val) => increment(acc, val), state)
 }
 
 function incrementNestedPath(state, path, key) {
@@ -75,7 +83,7 @@ function increment(state = {}, path) {
   })
 }
 
-function counterReducer(state, data) {
+const createReducer = survey => (state, data) => {
   const meta = Object.keys(data.meta)
     .filter(key => !['date'].includes(key))
     .map(key => ({ name: key, value: data.meta[key] }))
@@ -84,7 +92,15 @@ function counterReducer(state, data) {
     if (!data.answers || !data.answers[category]) return categoryAnswers
     return Object.keys(data.answers[category])
       .filter(key => !['email', 'comments'].includes(key))
-      .map(key => Object.assign({}, data.answers[category][key], { key }))
+      .map(key => {
+        const question = survey.questions.find(
+          item => item.key === key && item.category === category
+        )
+        return Object.assign({}, data.answers[category][key], {
+          key,
+          words: question ? question.words : []
+        })
+      })
       .reduce(answersReducer, state.answers[category])
   })
   return {
@@ -93,4 +109,4 @@ function counterReducer(state, data) {
   }
 }
 
-module.exports = counterReducer
+module.exports = createReducer

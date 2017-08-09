@@ -3,6 +3,7 @@ const groupBy = require('lodash.groupby')
 const mapValues = require('lodash.mapvalues')
 const pick = require('lodash.pick')
 const getQuestionOptions = require('./helpers/get-question-options')
+const parseUserInput = require('./parse-user-input')
 
 const rowToJSON = survey => row => {
   const count = survey.meta.length
@@ -29,7 +30,7 @@ function decodeAnswers(survey, rowData) {
       text: question.text,
       category: question.category,
       key: question.key,
-      value: item,
+      value: parseUserInput(question)(item),
       type: question.type
       // answer: decodeValue(item, question, types)
     }
