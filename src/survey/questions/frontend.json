@@ -57,7 +57,15 @@
       "scala",
       "webix",
       "enyo",
-      "quasar"
+      "quasar",
+      "vanilla",
+      "d3",
+      "three",
+      "cerebral",
+      "feathers",
+      "angular",
+      "underscore",
+      "bootstrap"
     ]
   },
   {
