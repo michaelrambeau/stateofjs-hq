@@ -12,7 +12,32 @@
       { "key": "firebase", "text": "Firebase" }
     ]
   },
-  { "key": "other", "text": "Other Data Management Solutions" },
+  { 
+    "key": "other", 
+    "text": "Other Data Management Solutions",
+    "words": [
+      "vuex",
+      "rxjs",
+      "gun",
+      "realm",
+      "cycle",
+      "kinto",
+      "immutable",
+      "parse",
+      "cerebral",
+      "flux",
+      "pouch",
+      "graph\.?cool",
+      "couchbase",
+      "meteor",
+      "horizon",
+      "elm",
+      "datomic",
+      "deployd",
+      "kinvey",
+      "hood\.?ie"
+    ]
+  },
   {
     "key": "happy",
     "type": "happiness",
