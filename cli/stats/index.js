@@ -12,7 +12,7 @@ async function main(options, logger) {
     writeJson('meta.json')(meta),
     writeJson('answers.json')(answers)
   ])
-  logger.info('THE END', answers.frontend.other)
+  logger.info('THE END', Object.keys(answers.backend.other).slice(0, 3))
 }
 
 const writeJson = filename => data => {

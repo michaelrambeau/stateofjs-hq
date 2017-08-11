@@ -48,12 +48,25 @@ test('Sort `other` question', () => {
         Backbone: 10,
         React: 200
       }
+    },
+    backend: {
+      keystone: { y: 'z' },
+      other: {
+        '24': 1,
+        Feathers: 100,
+        Loopback: 10,
+        Express: 200
+      }
     }
   }
   const expected = {
     frontend: {
       react: { x: 'y' },
       other: { React: 200, AngularJS: 100, Backbone: 10 }
+    },
+    backend: {
+      keystone: { y: 'z' },
+      other: { Express: 200, Feathers: 100, Loopback: 10 }
     }
   }
   const sorted = sortAnswers(answers)
@@ -61,6 +74,11 @@ test('Sort `other` question', () => {
     'React',
     'AngularJS',
     'Backbone'
+  ])
+  expect(Object.keys(sorted.backend.other)).toEqual([
+    'Express',
+    'Feathers',
+    'Loopback'
   ])
   expect(sorted).toEqual(expected)
 })

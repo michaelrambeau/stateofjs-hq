@@ -3,6 +3,7 @@ const mapValues = require('lodash.mapvalues')
 
 const sortKeys = fn => hashMap => {
   const sortedItems = Object.keys(hashMap)
+    .filter(key => isNaN(key))
     .map(key => ({ key, item: hashMap[key] }))
     .sort((a, b) => (fn(a) > fn(b) ? -1 : 1))
   return sortedItems.reduce(
@@ -11,15 +12,16 @@ const sortKeys = fn => hashMap => {
   )
 }
 
-const sortByValue = sortKeys(value => value.item)
+const sortByValue = sortKeys(value => {
+  return value.item
+})
 
 function sortMeta(metaSource) {
   return mapValues(metaSource, sortByValue)
 }
 
 function sortAnswers(answersSource) {
-  const categories = ['frontend']
-  const hasOtherQuestion = category => categories.includes(category)
+  const hasOtherQuestion = category => !!answersSource[category].other
   const sortedCategories = Object.keys(answersSource)
     .filter(hasOtherQuestion)
     .map(category => ({ [category]: sortOther(category, answersSource) }))

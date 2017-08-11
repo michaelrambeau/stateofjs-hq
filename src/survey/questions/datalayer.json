@@ -12,8 +12,8 @@
       { "key": "firebase", "text": "Firebase" }
     ]
   },
-  { 
-    "key": "other", 
+  {
+    "key": "other",
     "text": "Other Data Management Solutions",
     "words": [
       "vuex",
@@ -27,7 +27,7 @@
       "cerebral",
       "flux",
       "pouch",
-      "graph\.?cool",
+      "graph\\.?cool",
       "couchbase",
       "meteor",
       "horizon",
@@ -35,7 +35,7 @@
       "datomic",
       "deployd",
       "kinvey",
-      "hood\.?ie"
+      "hood\\.?ie"
     ]
   },
   {

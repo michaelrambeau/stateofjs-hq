@@ -12,7 +12,20 @@
       { "key": "keytone", "text": "Keystone" }
     ]
   },
-  { "key": "other", "text": "Other Front-End Frameworks" },
+  {
+    "key": "other",
+    "text": "Other Front-End Frameworks",
+    "words": [
+      "laravel",
+      "trails",
+      "adonis",
+      "kraken",
+      { "text": "golang", "query": "^go$|golang" },
+      { "text": "dotnet", "query": "asp\\.net|c#|\\.net|dotnet" },
+      { "text": "node.js", "query": "^node$|node\\.?js" }
+      { "text": "total.js", "query": "^total$|total\\.?js|" }
+    ]
+  },
   {
     "key": "happy",
     "type": "happiness",
