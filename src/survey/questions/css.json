@@ -11,7 +11,40 @@
       { "key": "foundation", "text": "Foundation" }
     ]
   },
-  { "key": "other", "text": "Other CSS solutions" },
+  {
+    "key": "other",
+    "text": "Other CSS solutions",
+    "words": [
+      "materialize",
+      "bulma",
+      "milligram",
+      "skeleton",
+      "uikit",
+      "flexbox",
+      "picnic",
+      "topocoat",
+      "glamor",
+      "bourbon",
+      "radium",
+      "aphrodite",
+      "styletron",
+      "jss",
+      "material design",
+      "mdl",
+      "vuetify",
+      { "text": "materialize", "query": "materiali[zs]e" },
+      { "text": "material ui", "query": "material.?ui" },
+      { "text": "css modules", "query": "css.?modules" },
+      { "text": "semantic ui", "query": "semantic" },
+      { "text": "postcss", "query": "post.?css" },
+      { "text": "purecss", "query": "pure.?css" },
+      { "text": "styled components", "query": "styled.?components" },
+      { "text": "cssnext", "query": "css.?next" },
+      { "text": "tachyons", "query": "tach.+on" },
+      { "text": "mini.css", "query": "mini.?css" },
+      { "text": "milligram", "query": "mill?igram" }
+    ]
+  },
   {
     "key": "happy",
     "type": "happiness",

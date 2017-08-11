@@ -24,17 +24,17 @@ prog
   .option('--start <number>', 'Start upload from number', prog.INT, 1)
   .action((args, options, logger) => {
     logger.info('Start downloading the survey results', options)
-    download(options, logger)
+    download(options, logger).catch(console.error)
   })
   .command('aggregate', 'Aggregate results from local CSV files')
   .action((args, options, logger) => {
     logger.info('Start aggregating the CSV files', options)
-    aggregate(options, logger)
+    aggregate(options, logger).catch(console.error)
   })
   .command('stats', 'Generate statictics from the aggregated files')
   .action((args, options, logger) => {
     logger.info('Start generating statistics', options)
-    stats(options, logger)
+    stats(options, logger).catch(console.error)
   })
 
 prog.parse(process.argv)
