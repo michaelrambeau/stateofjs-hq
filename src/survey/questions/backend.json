@@ -14,16 +14,23 @@
   },
   {
     "key": "other",
-    "text": "Other Front-End Frameworks",
+    "text": "Other Back-End Frameworks",
     "words": [
+      "php",
       "laravel",
+      "python",
+      "scala",
+      "haskell",
       "trails",
       "adonis",
       "kraken",
+      "couchdb",
+      "graphql",
+      { "text": "rails", "query": "rails|ruby on rails" },
       { "text": "golang", "query": "^go$|golang" },
-      { "text": "dotnet", "query": "asp\\.net|c#|\\.net|dotnet" },
-      { "text": "node.js", "query": "^node$|node\\.?js" }
-      { "text": "total.js", "query": "^total$|total\\.?js|" }
+      { "text": "dotnet", "query": "asp\\. ?net|c#|\\.net|dotnet" },
+      { "text": "node.js", "query": "^node$|node\\.?js|node js" },
+      { "text": "total.js", "query": "^total$|total\\.?js" }
     ]
   },
   {

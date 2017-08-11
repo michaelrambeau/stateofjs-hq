@@ -27,7 +27,7 @@
       "cerebral",
       "flux",
       "pouch",
-      "graph\\.?cool",
+      { "text": "graph.cool", "query": "graph\\.?cool" },
       "couchbase",
       "meteor",
       "horizon",
@@ -35,7 +35,8 @@
       "datomic",
       "deployd",
       "kinvey",
-      "hood\\.?ie"
+      { "text": "hoodie", "query": "hood\\.?ie" },
+      { "text": "mongodb", "query": "mongo ?db" }
     ]
   },
   {

@@ -114,7 +114,7 @@ test('Answers reducer - Frontend questions - Other - Parsing keywords', () => {
   const initialState = getInitialState()
   const data = [
     otherAnswer('inferno'),
-    otherAnswer('inferno'),
+    otherAnswer('inferno '),
     otherAnswer(['preact', 'inferno'])
   ]
   const state = data.reduce(reducer, initialState)
@@ -164,7 +164,7 @@ test('Answers reducer - Multichoice - 2 values selected and a custom choice', ()
   expect(state.answers.otherTools['package-managers']).toEqual({
     options: [1, 1, 0, 0],
     other: {
-      PNPM: 1
+      pnpm: 1
     }
   })
 })
@@ -198,7 +198,7 @@ test('Answers reducer - Favorite IDE', () => {
   const initialState = getInitialState()
   const data = [ideAnswer('PyCharm')]
   const state = data.reduce(reducer, initialState)
-  expect(state.answers.otherTools['ide'].other).toEqual({ PyCharm: 1 })
+  expect(state.answers.otherTools['ide'].other).toEqual({ pycharm: 1 })
 })
 
 const fromAnswer = value => ({
@@ -212,7 +212,7 @@ const fromAnswer = value => ({
 
 test('Answers reducer - About you - From', () => {
   const initialState = getInitialState()
-  const data = [fromAnswer('Twitter')]
+  const data = [fromAnswer('twitter')]
   const state = data.reduce(reducer, initialState)
   expect(state.answers.aboutYou.from).toEqual({ twitter: 1 })
 })

@@ -1,21 +1,27 @@
 const path = require('path')
 const fs = require('fs-extra')
 
-const metaSource = require('../../output/aggregations/meta.json')
-const answersSource = require('../../output/aggregations/answers.json')
 const { sortMeta, sortAnswers } = require('../../src/sort-helpers')
 
 async function main(options, logger) {
-  const meta = sortMeta(metaSource)
-  const answers = sortAnswers(answersSource)
   await Promise.all([
-    writeJson('meta.json')(meta),
-    writeJson('answers.json')(answers)
+    readInput('meta.json').then(sortMeta).then(writeOutput('meta.json')),
+    readInput('answers.json')
+      .then(sortAnswers)
+      .then(writeOutput('answers.json'))
   ])
-  logger.info('THE END', Object.keys(answers.backend.other).slice(0, 3))
+  logger.info(
+    'THE END',
+    `JSON files generated inside: ${path.join(process.cwd(), 'public')}`
+  )
 }
 
-const writeJson = filename => data => {
+const readInput = filename => {
+  const filepath = path.join(process.cwd(), 'output', 'aggregations', filename)
+  return fs.readJson(filepath)
+}
+
+const writeOutput = filename => data => {
   const filepath = path.join(process.cwd(), 'public', filename)
   return fs.outputJson(filepath, data, { spaces: 2 })
 }
