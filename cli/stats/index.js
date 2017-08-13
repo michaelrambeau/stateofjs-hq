@@ -11,13 +11,19 @@ async function main(options, logger) {
       .then(writeOutput('answers.json'))
   ])
   logger.info(
-    'THE END',
-    `JSON files generated inside: ${path.join(process.cwd(), 'public')}`
+    'THE END - ',
+    `Statistics generated inside: ${path.join(process.cwd(), 'public')}`
   )
 }
 
 const readInput = filename => {
-  const filepath = path.join(process.cwd(), 'output', 'aggregations', filename)
+  const filepath = path.join(
+    process.cwd(),
+    'output',
+    'aggregations',
+    'all',
+    filename
+  )
   return fs.readJson(filepath)
 }
 

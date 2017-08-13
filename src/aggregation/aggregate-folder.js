@@ -1,17 +1,13 @@
 const fs = require('fs-extra')
 const path = require('path')
-const createFileReducer = require('./file-reducer')
-const pReduce = require('p-reduce')
-const getInitialState = require('./initial-state')
+const aggregateFiles = require('./aggregate-files')
 
 async function aggregateFolder({ survey, folderPath, logger }) {
-  // const folderPath = path.join(process.cwd(), 'output')
   const filenames = await fs.readdir(folderPath)
-  if (logger) logger.info('CSV files to process', filenames)
-  const fileReducer = createFileReducer(survey, logger)
+  if (logger)
+    logger.info(`${filenames.length} CSV files to process'`, filenames)
   const filepaths = filenames.map(filename => path.join(folderPath, filename))
-  const initialState = getInitialState()
-  return pReduce(filepaths, fileReducer, initialState)
+  return aggregateFiles({ filepaths, survey, logger })
 }
 
 module.exports = aggregateFolder
