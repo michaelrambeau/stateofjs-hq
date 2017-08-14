@@ -33,6 +33,7 @@ prog
     prog.BOOL,
     false
   )
+  .option('--country <boolean>', 'Group results by countru', prog.BOOL, false)
   .option(
     '--page <number>',
     'Aggregate only data from the given CSV file (specify `1` for the first file)',

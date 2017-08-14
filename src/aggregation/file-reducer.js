@@ -1,5 +1,4 @@
 const debug = require('debug')('reducer')
-const createReducer = require('./response-reducer')
 const fs = require('fs-extra')
 
 const rowToJSON = require('../row-to-json')
@@ -12,13 +11,14 @@ async function readSingleCsvFile(filepath) {
   return json
 }
 
-const createFileReducer = (survey, logger) => async (state, filepath) => {
+const createFileReducer = ({ survey, logger, responseReducer }) => async (
+  state,
+  filepath
+) => {
   if (logger) logger.info('Reading', filepath)
   const csvRows = await readSingleCsvFile(filepath)
   const jsonRows = csvRows.map(rowToJSON(survey))
-  debug(jsonRows[0].answers.otherTools)
-  const reducer = createReducer(survey)
-  const updatedState = jsonRows.reduce(reducer, state)
+  const updatedState = jsonRows.reduce(responseReducer, state)
   return updatedState
 }
 

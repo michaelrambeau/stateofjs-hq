@@ -216,3 +216,14 @@ test('Answers reducer - About you - From', () => {
   const state = data.reduce(reducer, initialState)
   expect(state.answers.aboutYou.from).toEqual({ twitter: 1 })
 })
+
+test('Only knowledge question', () => {
+  const filterQuestion = question => {
+    return question.type === 'knowledge'
+  }
+  const initialState = getInitialState({ filterQuestion })
+  const data = [reactAnswer(3), reactAnswer(3)]
+  const knowledgeReducer = createReducer(survey, { filterQuestion })
+  const state = data.reduce(knowledgeReducer, initialState)
+  expect(Object.keys(state.answers).length).toBe(8)
+})

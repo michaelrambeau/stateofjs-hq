@@ -1,11 +1,15 @@
 const createFileReducer = require('./file-reducer')
 const pReduce = require('p-reduce')
-const getInitialState = require('./initial-state')
 
-async function aggregateFiles({ survey, filepaths, logger }) {
+async function aggregateFiles({
+  survey,
+  filepaths,
+  responseReducer,
+  initialState,
+  logger
+}) {
   if (logger) logger.info('CSV files to process', filepaths)
-  const fileReducer = createFileReducer(survey, logger)
-  const initialState = getInitialState()
+  const fileReducer = createFileReducer({ responseReducer, survey, logger })
   return pReduce(filepaths, fileReducer, initialState)
 }
 

@@ -87,7 +87,7 @@ function increment(state = {}, path) {
   })
 }
 
-const createReducer = survey => (state, data) => {
+const createReducer = (survey, options = {}) => (state, data) => {
   const meta = Object.keys(data.meta)
     .filter(key => !['date'].includes(key))
     .map(key => ({ name: key, value: data.meta[key] }))
@@ -96,10 +96,14 @@ const createReducer = survey => (state, data) => {
     if (!data.answers || !data.answers[category]) return categoryAnswers
     return Object.keys(data.answers[category])
       .filter(key => !['email', 'comments'].includes(key))
-      .map(key => {
-        const question = survey.questions.find(
+      .map(key =>
+        survey.questions.find(
           item => item.key === key && item.category === category
         )
+      )
+      .filter(options.filterQuestion || (q => q))
+      .map(question => {
+        const key = question.key
         return Object.assign({}, data.answers[category][key], {
           key,
           words: question ? question.words : []

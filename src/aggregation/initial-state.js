@@ -18,7 +18,7 @@ function questionToDefaultAgg(question) {
   }
 }
 
-function getInitialState() {
+function getInitialState(options = {}) {
   const categories = [
     'frontend',
     'flavors',
@@ -46,7 +46,7 @@ function getInitialState() {
     {}
   )
   const answers = R.compose(R.mapObjIndexed(groupByKey), groupByCategory)(
-    survey.questions
+    survey.questions.filter(options.filterQuestion || (x => x))
   )
   return { meta, answers }
 }

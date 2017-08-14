@@ -4,6 +4,8 @@ const pReduce = require('p-reduce')
 
 const getInitialState = require('../src/aggregation/initial-state')
 const createFileReducer = require('../src/aggregation/file-reducer')
+const createResponseReducer = require('../src/aggregation/response-reducer')
+const createCountryReducer = require('../src/aggregation/create-country-reducer')
 const createSurvey = require('../src/survey')
 const aggregateFolder = require('../src/aggregation/aggregate-folder')
 
@@ -28,7 +30,8 @@ const survey = createSurvey([
 ])
 
 test('Read only the first CSV file', () => {
-  const fileReducer = createFileReducer(survey)
+  const responseReducer = createResponseReducer(survey)
+  const fileReducer = createFileReducer({ survey, responseReducer })
   const filepath = getCsvFilepath('1.csv')
   const initialState = getInitialState()
   return fileReducer(initialState, filepath).then(state => {
@@ -46,7 +49,8 @@ test('Read only the first CSV file', () => {
 })
 
 test('Read only the second CSV file', () => {
-  const fileReducer = createFileReducer(survey)
+  const responseReducer = createResponseReducer(survey)
+  const fileReducer = createFileReducer({ survey, responseReducer })
   const filepath = getCsvFilepath('2.csv')
   const initialState = getInitialState()
   return fileReducer(initialState, filepath).then(state => {
@@ -57,7 +61,8 @@ test('Read only the second CSV file', () => {
 })
 
 test('Read the 2 files sequentially using `pReduce`', () => {
-  const fileReducer = createFileReducer(survey)
+  const responseReducer = createResponseReducer(survey)
+  const fileReducer = createFileReducer({ survey, responseReducer })
   const filepaths = filenames.map(getCsvFilepath)
   const initialState = getInitialState()
   return pReduce(filepaths, fileReducer, initialState).then(state => {
@@ -73,8 +78,15 @@ test('Read the 2 files sequentially using `pReduce`', () => {
 })
 
 test('Aggregate the folder content', () => {
+  const responseReducer = createResponseReducer(survey)
   const folderPath = path.join('test', 'csv')
-  return aggregateFolder({ folderPath, survey }).then(state => {
+  const initialState = getInitialState()
+  return aggregateFolder({
+    folderPath,
+    survey,
+    responseReducer,
+    initialState
+  }).then(state => {
     expect(Object.keys(state)).toEqual(['meta', 'answers'])
     expect(state.meta.location).toEqual({
       EMPTY: 2,
@@ -90,5 +102,23 @@ test('Aggregate the folder content', () => {
       'United States': 3
     })
     expect(state.meta.browser).toEqual({ Chrome: 12, Firefox: 2 })
+  })
+})
+
+test('Read only the first CSV file using the `Country` reducer', () => {
+  const responseReducer = createCountryReducer(createResponseReducer(survey))
+  const fileReducer = createFileReducer({ survey, responseReducer })
+  const filepath = getCsvFilepath('1.csv')
+  const initialState = {}
+  return fileReducer(initialState, filepath).then(state => {
+    expect(Object.keys(state)).toEqual(['Spain', 'United States'])
+    expect(state.Spain.answers.frontend.react).toEqual([0, 0, 0, 1, 0])
+    expect(state['United States'].answers.frontend.react).toEqual([
+      0,
+      0,
+      0,
+      1,
+      0
+    ])
   })
 })

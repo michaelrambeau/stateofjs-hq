@@ -5,6 +5,9 @@ const numeral = require('numeral')
 const createSurvey = require('../../src/survey')
 const aggregateFolder = require('../../src/aggregation/aggregate-folder')
 const aggregateFiles = require('../../src/aggregation/aggregate-files')
+const getInitialState = require('../../src/aggregation/initial-state')
+const createCountryReducer = require('../../src/aggregation/create-country-reducer')
+const createResponseReducer = require('../../src/aggregation/response-reducer')
 
 async function main(options, logger) {
   try {
@@ -22,11 +25,19 @@ async function main(options, logger) {
       'opinion',
       'aboutYou'
     ])
-    const { page, all } = options
+    const { page, all, country } = options
+    const reducer = createResponseReducer(survey)
+    const responseReducer = country ? createCountryReducer(reducer) : reducer
     if (all) {
-      await aggregateAllCsvFiles({ survey, logger })
+      await aggregateAllCsvFiles({ survey, logger, responseReducer, country })
     } else {
-      await aggregateSingleCsvFile({ survey, logger, page })
+      await aggregateSingleCsvFile({
+        survey,
+        logger,
+        page,
+        responseReducer,
+        country
+      })
     }
     logger.info('THE END')
   } catch (err) {
@@ -34,18 +45,62 @@ async function main(options, logger) {
   }
 }
 
-async function aggregateAllCsvFiles({ survey, logger }) {
+async function aggregateAllCsvFiles({
+  survey,
+  logger,
+  responseReducer,
+  country
+}) {
   const folderPath = path.join(process.cwd(), 'output', 'responses')
-  const result = await aggregateFolder({ survey, folderPath, logger })
-  await writeResult('all', result)
+  const initialState = country ? {} : getInitialState()
+  const result = await aggregateFolder({
+    survey,
+    folderPath,
+    logger,
+    responseReducer,
+    initialState
+  })
+  if (country) {
+    await Promise.all(
+      Object.keys(result).map(country => {
+        writeResult(path.join('countries', country), result[country])
+      })
+    )
+  } else {
+    await writeResult('all', result)
+  }
 }
 
-async function aggregateSingleCsvFile({ survey, logger, page }) {
+async function aggregateSingleCsvFile({
+  survey,
+  logger,
+  responseReducer,
+  page,
+  country
+}) {
   const filename = numberToFilename(page)
   const filepath = path.join(process.cwd(), 'output', 'responses', filename)
   const filepaths = [filepath]
-  const result = await aggregateFiles({ survey, filepaths, logger })
-  await writeResult(path.join('pages', format(page)), result)
+  const initialState = country ? {} : getInitialState()
+  const result = await aggregateFiles({
+    survey,
+    filepaths,
+    logger,
+    responseReducer,
+    initialState
+  })
+  if (country) {
+    await Promise.all(
+      Object.keys(result).map(country => {
+        writeResult(
+          path.join('pages', format(page), 'countries', country),
+          result[country]
+        )
+      })
+    )
+  } else {
+    await writeResult(path.join('pages', format(page)), result)
+  }
   logger.info('Aggregate only results from', filename)
 }
 

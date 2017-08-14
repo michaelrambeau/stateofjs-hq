@@ -37,7 +37,7 @@
   "scripts": {
     "test": "jest",
     "test.watch": "jest --watch",
-    "debug": "jest test/parse-user-input.test.js --watch",
+    "debug": "jest test/aggregate-json.test.js --watch",
     "clean": "rm -rf output",
     "deploy": "now deploy ./public --name stateofjs --public"
   },
