@@ -8,6 +8,7 @@ const aggregateFiles = require('../../src/aggregation/aggregate-files')
 const getInitialState = require('../../src/aggregation/initial-state')
 const createCountryReducer = require('../../src/aggregation/create-country-reducer')
 const createResponseReducer = require('../../src/aggregation/response-reducer')
+const numberToFilename = require('../../src/helpers/page-number-to-filename')
 
 async function main(options, logger) {
   try {
@@ -105,11 +106,6 @@ async function aggregateSingleCsvFile({
 }
 
 const format = number => `${numeral(number).format('00000')}`
-
-const numberToFilename = page => {
-  const number = 1 + (page - 1) * 1000
-  return `${format(number)}.csv`
-}
 
 const writeJson = (folder, filename) => agg => {
   const filepath = path.join(

@@ -6,6 +6,7 @@ const getInitialState = require('../src/aggregation/initial-state')
 const createFileReducer = require('../src/aggregation/file-reducer')
 const createResponseReducer = require('../src/aggregation/response-reducer')
 const createCountryReducer = require('../src/aggregation/create-country-reducer')
+const createCommentsReducer = require('../src/aggregation/comments-reducer')
 const createSurvey = require('../src/survey')
 const aggregateFolder = require('../src/aggregation/aggregate-folder')
 
@@ -36,7 +37,7 @@ test('Read only the first CSV file', () => {
   const initialState = getInitialState()
   return fileReducer(initialState, filepath).then(state => {
     expect(Object.keys(state)).toEqual(['meta', 'answers'])
-    expect(state.meta.location).toEqual({ Spain: 1, 'United States': 1 })
+    expect(state.meta.location).toEqual({ Australia: 1, Singapore: 1 })
     expect(state.meta.browser).toEqual({ Chrome: 2 })
     expect(state.answers.frontend.react).toEqual([0, 0, 0, 2, 0])
     expect(state.answers.frontend.react).toEqual([0, 0, 0, 2, 0])
@@ -68,8 +69,8 @@ test('Read the 2 files sequentially using `pReduce`', () => {
   return pReduce(filepaths, fileReducer, initialState).then(state => {
     expect(Object.keys(state)).toEqual(['meta', 'answers'])
     expect(state.meta.location).toEqual({
-      Spain: 1,
-      'United States': 1,
+      Singapore: 1,
+      Australia: 1,
       Canada: 1,
       Poland: 1
     })
@@ -90,16 +91,15 @@ test('Aggregate the folder content', () => {
     expect(Object.keys(state)).toEqual(['meta', 'answers'])
     expect(state.meta.location).toEqual({
       EMPTY: 2,
-      Australia: 1,
+      Australia: 2,
       Canada: 1,
       Germany: 1,
       Poland: 1,
       Russia: 1,
-      Singapore: 1,
-      Spain: 1,
+      Singapore: 2,
       Sweden: 1,
       Ukraine: 1,
-      'United States': 3
+      'United States': 2
     })
     expect(state.meta.browser).toEqual({ Chrome: 12, Firefox: 2 })
   })
@@ -111,14 +111,19 @@ test('Read only the first CSV file using the `Country` reducer', () => {
   const filepath = getCsvFilepath('1.csv')
   const initialState = {}
   return fileReducer(initialState, filepath).then(state => {
-    expect(Object.keys(state)).toEqual(['Spain', 'United States'])
-    expect(state.Spain.answers.frontend.react).toEqual([0, 0, 0, 1, 0])
-    expect(state['United States'].answers.frontend.react).toEqual([
-      0,
-      0,
-      0,
-      1,
-      0
-    ])
+    expect(Object.keys(state)).toEqual(['Singapore', 'Australia'])
+    expect(state.Singapore.answers.frontend.react).toEqual([0, 0, 0, 1, 0])
+    expect(state.Singapore.answers.frontend.react).toEqual([0, 0, 0, 1, 0])
+  })
+})
+
+test('Read only the first CSV file using the `Comments` reducer', () => {
+  const responseReducer = createCommentsReducer()
+  const fileReducer = createFileReducer({ survey, responseReducer })
+  const filepath = getCsvFilepath('1.csv')
+  const initialState = { count: 0, data: [] }
+  return fileReducer(initialState, filepath).then(state => {
+    expect(Object.keys(state)).toEqual(['count', 'data'])
+    expect(state).toEqual({ count: 1, data: ['my comment'] })
   })
 })
