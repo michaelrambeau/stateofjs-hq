@@ -4,6 +4,7 @@ const options = require('./options')
 
 const meta = [
   { name: 'date', path: 'metadata.date_submit' },
+  { name: 'referer', path: 'hidden.referrer' },
   { name: 'location', path: 'hidden.location' },
   { name: 'city', path: 'hidden.city' },
   { name: 'device', path: 'hidden.device' },

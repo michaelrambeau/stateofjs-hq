@@ -13,33 +13,34 @@ test('It should encode the response from the API', () => {
   expect(encoded.length > 0).toBe(true)
   expect(encoded).toEqual([
     '2017-07-17 07:18:25',
+    null,
     'Singapore',
     'Singapore',
     'desktop',
     'windows',
     'Chrome',
-    3,
-    2,
+    4,
     1,
     2,
-    3,
     1,
+    4,
+    2,
     0,
-    1,
-    3,
+    2,
+    4,
     '',
     3,
-    [0, 1, 'PNPM'], // NPM, Yarn,  and PNPM (added manually)
-    0, // jQuery
-    0, // Sublime Text
-    0 // "I don't know what that is"
+    [0, 1, 'PNPM'],
+    0,
+    0,
+    0
   ])
   const decoded = rowToJSON(survey)(encoded)
   expect(Object.keys(decoded)).toEqual(['meta', 'answers'])
   // Check meta values
   expect(decoded.meta.device).toEqual('desktop')
   expect(decoded.answers.frontend.react).toEqual({
-    value: 3,
+    value: 4,
     type: 'knowledge'
   })
   expect(decoded.answers.otherTools['package-managers']).toEqual({

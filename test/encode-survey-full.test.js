@@ -24,60 +24,61 @@ test('It should encode the response from the API', () => {
   expect(responses.length).toBe(1)
   const encoded = encode(survey, questions)(responses[0])
   expect(encoded.length > 0).toBe(true)
-  expect(encoded.slice(0, 16)).toEqual([
+  expect(encoded.slice(0, 17)).toEqual([
     '2017-07-17 07:18:25',
+    'https://t.co/WCILY6Ni6R?xxx',
     'Singapore',
     'Singapore',
     'desktop',
     'windows',
     'Chrome',
-    3,
-    2,
+    4,
     1,
     2,
-    3,
     1,
+    4,
+    2,
     0,
-    1,
-    3,
+    2,
+    4,
     ''
   ])
 
   const decoded = rowToJSON(survey)(encoded)
   expect(decoded.answers.frontend.react).toEqual({
-    value: 3,
+    value: 4,
     type: 'knowledge'
   })
   expect(decoded.answers.frontend['angular-1']).toEqual({
-    value: 2,
+    value: 1,
     type: 'knowledge'
   })
   expect(decoded.answers.flavors.es6).toEqual({
-    value: 3,
+    value: 4,
     type: 'knowledge'
   })
   expect(decoded.answers.datalayer.redux).toEqual({
-    value: 1,
+    value: 2,
     type: 'knowledge'
   })
   expect(decoded.answers.backend.express).toEqual({
-    value: 3,
+    value: 4,
     type: 'knowledge'
   })
   expect(decoded.answers.testing.jest).toEqual({
-    value: 1,
+    value: 2,
     type: 'knowledge'
   })
   expect(decoded.answers.css['css-in-js']).toEqual({
-    value: 3,
+    value: 4,
     type: 'knowledge'
   })
   expect(decoded.answers.build.rollup).toEqual({
-    value: 1,
+    value: 2,
     type: 'knowledge'
   })
   expect(decoded.answers.mobile.electron).toEqual({
-    value: 2,
+    value: 1,
     type: 'knowledge'
   })
   expect(decoded.answers.otherTools['package-managers']).toEqual({

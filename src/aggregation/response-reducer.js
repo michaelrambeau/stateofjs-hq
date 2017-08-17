@@ -1,11 +1,23 @@
 const debug = require('debug')('agg')
 const mapValues = require('lodash.mapvalues')
+const url = require('url')
 
 const emptyValues = ['undefined', '']
 const isEmptyValue = value => emptyValues.includes(value.toLowerCase())
 
+const metaParsingRules = {
+  referer: value => {
+    const parts = url.parse(value)
+    return `${parts.hostname}${parts.pathname || ''}`
+  }
+}
+const parseMeta = (key, value) => {
+  const rule = metaParsingRules[key]
+  return rule ? rule(value) : value
+}
+
 function metaFieldReducer(state, { name, value }) {
-  const key = isEmptyValue(value) ? 'EMPTY' : value
+  const key = isEmptyValue(value) ? 'EMPTY' : parseMeta(name, value)
   const count = state[name][key]
   const fieldCounters = Object.assign({}, state[name], {
     [key]: count ? count + 1 : 1
