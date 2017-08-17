@@ -6,6 +6,15 @@ A tool to perform background tasks related to State of JavaScript.
 node cli --help
 ```
 
+## STEP 0: Configure Typeform API Key
+
+In `.env`:
+
+```
+TYPEFORM_API_KEY=3ad*************************************
+TYPEFORM_UID=S5****
+```
+
 ## STEP 1: Download and process survey results
 
 To download **all** pages of result sequentially, each page contains 1000 answers:
@@ -58,7 +67,7 @@ The following files will be created in local
 The following script will loop through all files inside `output/responses` and create a single object.
 
 ```
-node cli aggregate
+node cli aggregate --all
 ```
 
 As a result of the aggregation, the following files will be created:
@@ -80,4 +89,16 @@ node cli stats
 public
 ├── answers.json
 └── meta.json
+```
+
+
+## STEP 4: Get all comments
+
+```
+node cli comments --all
+```
+
+```
+public
+└── comments.json
 ```

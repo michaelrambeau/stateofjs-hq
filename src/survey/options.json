@@ -1,10 +1,10 @@
 {
   "knowledge": [
     "I've never heard of it",
-    "I've HEARD of it, and WOULD like to learn it",
     "I've HEARD of it, and am NOT interested",
-    "I've USED it before, and WOULD use it again",
-    "I've USED it before, and would NOT use it again"
+    "I've HEARD of it, and WOULD like to learn it",
+    "I've USED it before, and would NOT use it again",
+    "I've USED it before, and WOULD use it again"
   ],
   "happiness": ["1", "2", "3", "4", "5"],
   "feature": [
