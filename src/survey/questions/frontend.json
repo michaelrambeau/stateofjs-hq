@@ -8,7 +8,7 @@
       { "key": "ember", "text": "Ember" },
       { "key": "vue", "text": "Vue" },
       { "key": "backbone", "text": "Backbone" },
-      { "key": "ember", "text": "Polymer" },
+      { "key": "polymer", "text": "Polymer" },
       { "key": "aurelia", "text": "Aurelia" },
       { "key": "no-framework", "text": "No Front-End Framework" }
     ]

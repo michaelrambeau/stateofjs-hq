@@ -2,12 +2,14 @@ const path = require('path')
 const fs = require('fs-extra')
 
 const { sortMeta, sortAnswers } = require('../../src/sort-helpers')
+const groupQuestions = require('../../src/stats/process-knowledge-questions')
 
 async function main(options, logger) {
   await Promise.all([
     readInput('meta.json').then(sortMeta).then(writeOutput('meta.json')),
     readInput('answers.json')
       .then(sortAnswers)
+      .then(groupQuestions)
       .then(writeOutput('answers.json'))
   ])
   logger.info(

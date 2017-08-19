@@ -115,7 +115,7 @@ const writeJson = (folder, filename) => agg => {
     folder,
     filename
   )
-  return fs.outputJson(filepath, agg)
+  return fs.outputJson(filepath, agg, { spaces: 2 })
 }
 
 function writeResult(folder, agg) {

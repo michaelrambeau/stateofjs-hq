@@ -8,7 +8,6 @@ async function aggregateFiles({
   initialState,
   logger
 }) {
-  if (logger) logger.info('CSV files to process', filepaths)
   const fileReducer = createFileReducer({ responseReducer, survey, logger })
   return pReduce(filepaths, fileReducer, initialState)
 }
