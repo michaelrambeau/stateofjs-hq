@@ -9,6 +9,7 @@ const getInitialState = require('../../src/aggregation/initial-state')
 const createCountryReducer = require('../../src/aggregation/create-country-reducer')
 const createResponseReducer = require('../../src/aggregation/response-reducer')
 const numberToFilename = require('../../src/helpers/page-number-to-filename')
+const { sortMeta, sortAnswers } = require('../../src/sort-helpers')
 
 async function main(options, logger) {
   try {
@@ -119,8 +120,15 @@ const writeJson = (folder, filename) => agg => {
 }
 
 function writeResult(folder, agg) {
+  const sortFn = {
+    meta: sortMeta,
+    answers: sortAnswers
+  }
   return Promise.all(
-    Object.keys(agg).map(key => writeJson(folder, `${key}.json`)(agg[key]))
+    Object.keys(sortFn).map(key => {
+      const sortedData = sortFn[key](agg[key])
+      return writeJson(folder, `${key}.json`)(sortedData)
+    })
   )
 }
 
