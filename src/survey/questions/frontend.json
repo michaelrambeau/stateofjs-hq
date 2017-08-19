@@ -18,6 +18,23 @@
     "text": "Other Front-End Frameworks",
     "words": [
       "preact",
+      "elm",
+      "cycle",
+      "knockout",
+      "jquery",
+      "mithril",
+      "inferno",
+      { "text": "meteor", "query": "meteor|blaze" },
+      "riot",
+      "ext",
+      "svelte", 
+      "om",
+      "choo",
+      "hyperapp",
+      "dojo"
+    ],
+    "fullwords": [
+      "preact",
       "mithril",
       "inferno",
       "elm",

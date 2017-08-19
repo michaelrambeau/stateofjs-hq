@@ -10,7 +10,21 @@
       { "key": "electron", "text": "Electron" }
     ]
   },
-  { "key": "other", "text": "Other mobile/desktop apps solutions" },
+  { 
+    "key": "other", 
+    "text": "Other mobile/desktop apps solutions",
+    "words": [
+      "weex",
+      "xamarin",
+      { "text": "nw.js", "query": "nw.?js" },
+      { "text": "pwa", "query": "pwa|progressive web apps" },
+      "flutter",
+      "titanium",
+      "expo",
+      "quasar",
+      "fuse"
+    ] 
+  },
   {
     "key": "happy",
     "type": "happiness",

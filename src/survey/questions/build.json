@@ -10,7 +10,24 @@
       { "key": "rollup", "text": "Rollup" }
     ]
   },
-  { "key": "other", "text": "Other build tools" },
+  { 
+    "key": "other", 
+    "text": "Other build tools",
+    "words": [
+      "yarn",
+      "brunch",
+      "make",
+      "broccoli",
+      "bower",
+      "jspm",
+      "fusebox",
+      "meteor",
+      "systemjs",
+      "gradle",
+      "makefile",
+      "stealjs"
+    ] 
+  },
   {
     "key": "happy",
     "type": "happiness",

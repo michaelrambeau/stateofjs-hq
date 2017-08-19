@@ -10,7 +10,28 @@
       { "key": "ava", "text": "Ava" }
     ]
   },
-  { "key": "other", "text": "Other testing frameworks" },
+  { 
+    "key": "other", 
+    "text": "Other testing frameworks",
+    "words": [
+      "qunit",
+      "karma",
+      "chai",
+      "protractor",
+      "selenium",
+      "nightwatch",
+      "elm-test",
+      "tap",
+      "cucumber",
+      "sinon",
+      "intern",
+      "lab",
+      "testcafe",
+      "junit",
+      "jest",
+      "cypress"
+    ]
+  },
   {
     "key": "happy",
     "type": "happiness",
