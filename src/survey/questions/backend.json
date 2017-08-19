@@ -36,6 +36,33 @@
       "graphql",
       "haskell",
       "clojure"
+    ],
+    "fullwords": [
+      { "text": "node.js", "query": "^node$|node\\.?js|node js" },
+      { "text": "rails", "query": "rails|ruby on rails" },
+      { "text": "dotnet", "query": "asp\\. ?net|c#|\\.net|dotnet" },
+      "php",
+      "restify",
+      "adonis",
+      "laravel",
+      "python",
+      "django",
+      { "text": "golang", "query": "^go$|golang" },
+      "java",
+      "socket.io",
+      "micro",
+      "elixir",
+      "next.js",
+      "serverless",
+      "firebase",
+      "graphql",
+      "haskell",
+      "clojure",
+      "scala",
+      "haskell",
+      "trails",
+      "kraken",
+      "couchdb"
     ]
   },
   {

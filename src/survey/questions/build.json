@@ -26,6 +26,20 @@
       "gradle",
       "makefile",
       "stealjs"
+    ],
+    "fullwords": [
+      "yarn",
+      "brunch",
+      "make",
+      "broccoli",
+      "bower",
+      "jspm",
+      "fusebox",
+      "meteor",
+      "systemjs",
+      "gradle",
+      "makefile",
+      "stealjs"
     ] 
   },
   {

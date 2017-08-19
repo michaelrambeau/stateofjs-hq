@@ -3,7 +3,7 @@ const mapValues = require('lodash.mapvalues')
 const url = require('url')
 
 const emptyValues = ['undefined', '']
-const isEmptyValue = value => emptyValues.includes(value.toLowerCase())
+const isEmptyValue = value => typeof value === 'string' && emptyValues.includes(value.toLowerCase())
 
 const metaParsingRules = {
   referer: value => {

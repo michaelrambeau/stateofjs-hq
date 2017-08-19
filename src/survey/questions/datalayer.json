@@ -48,7 +48,10 @@
       "deployd",
       "kinvey",
       { "text": "hoodie", "query": "hood\\.?ie" },
-      { "text": "mongodb", "query": "mongo ?db" }
+      "immutable",
+      "gun",
+      "kinto",
+      "cerebral"
     ]
   },
   {

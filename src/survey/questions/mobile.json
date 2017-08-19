@@ -23,6 +23,17 @@
       "expo",
       "quasar",
       "fuse"
+    ],
+    "fullwords": [
+      "weex",
+      "xamarin",
+      { "text": "nw.js", "query": "nw.?js" },
+      { "text": "pwa", "query": "pwa|progressive web apps" },
+      "flutter",
+      "titanium",
+      "expo",
+      "quasar",
+      "fuse"
     ] 
   },
   {
