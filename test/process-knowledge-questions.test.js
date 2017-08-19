@@ -10,7 +10,7 @@ const input = {
   backend: {
     meteor: [1, 2, 3, 4, 5],
     express: [1, 2, 3, 4, 5],
-    other: { graphql: 33, yyy: 30 },
+    other: { graphql: 33, yyy: 30, rails: 1 },
     happy: [50, 40, 30, 20, 10]
   }
   // features: {}
@@ -31,7 +31,8 @@ const expectedOutput = {
       express: [1, 2, 3, 4, 5]
     },
     others_clean: {
-      graphql: 33
+      graphql: 33,
+      rails: 1
     },
     happy: [50, 40, 30, 20, 10]
   }

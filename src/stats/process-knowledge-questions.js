@@ -2,11 +2,23 @@ const questions = require('../survey/questions')
 const mapValues = require('lodash.mapvalues')
 const flatten = require('lodash.flatten')
 
+// Apply 2 transformations to all answers from `answers.json` file.
+// * Group all `type="knowledge"` questions under `data` path
+// * Clean the `key="other"` questionx to keep only answers defined in the "words" object
+function convert(answers) {
+  return mapValues(answers, (value, category) => {
+    return categoryHasOtherQuestion(category)
+      ? processCategory(answers, category)
+      : value
+  })
+}
+
 const getOtherQuestion = category =>
   questions[category].find(question => question.key === 'other')
 
 const categoryHasOtherQuestion = category => !!getOtherQuestion(category)
 
+// Apply the 2 transformations (see above) to a given category
 const processCategory = (answers, category) => {
   const categoryAnswers = answers[category]
   const { other, happy } = categoryAnswers
@@ -28,8 +40,14 @@ const processCategory = (answers, category) => {
   }
 }
 
+// Transformation #2: keep only keywords in the "other" answers
 const filterOtherWords = (answerKeywords, category) => {
-  const questionKeywords = getOtherQuestion(category).words
+  // Loop through all `words` for a given question
+  // Each word can be either a string of an Object:
+  //  { "text": "rails", "query": "rails|ruby on rails" }
+  const questionKeywords = getOtherQuestion(category).words.map(
+    item => item.text || item
+  )
   return questionKeywords
     ? Object.keys(answerKeywords)
         .filter(value => questionKeywords.includes(value))
@@ -41,14 +59,6 @@ const filterOtherWords = (answerKeywords, category) => {
           {}
         )
     : answerKeywords
-}
-
-function convert(answers) {
-  return mapValues(answers, (value, category) => {
-    return categoryHasOtherQuestion(category)
-      ? processCategory(answers, category)
-      : value
-  })
 }
 
 module.exports = convert
