@@ -1,37 +1,50 @@
+/*
+=============================
+`STATS` step of the pipeline
+=============================
+To be run after the `AGGREGATE` step.
+Launched by `node cli stats` command
+Goal: generate ligher files from aggregated files,
+using "shortlist" of keywords to compact the `other` answers.
+*/
 const path = require('path')
 const fs = require('fs-extra')
 
-const { sortMeta, sortAnswers } = require('../../src/sort-helpers')
-const groupQuestions = require('../../src/stats/process-knowledge-questions')
+const { compactAllJsonFiles } = require('../../src/stats/compact-other')
+const questions = require('../../src/survey/questions')
 
 async function main(options, logger) {
-  await Promise.all([
-    readInput('meta.json').then(sortMeta).then(writeOutput('meta.json')),
-    readInput('answers.json')
-      .then(sortAnswers)
-      .then(groupQuestions)
-      .then(writeOutput('answers.json'))
-  ])
-  logger.info(
-    'THE END - ',
-    `Statistics generated inside: ${path.join(process.cwd(), 'public')}`
-  )
-}
-
-const readInput = filename => {
-  const filepath = path.join(
+  const inputFolderPath = path.join(
     process.cwd(),
     'output',
     'aggregations',
     'all',
-    filename
+    'answers'
   )
-  return fs.readJson(filepath)
+  const outputFolderPath = path.join(
+    process.cwd(),
+    'output',
+    'stats',
+    'all',
+    'answers'
+  )
+  const compactData = await compactAllJsonFiles({
+    inputFolderPath,
+    questionKey: 'other',
+    questions
+  })
+  await writeAllFiles(compactData, outputFolderPath, logger)
+  logger.info('THE END')
 }
 
-const writeOutput = filename => data => {
-  const filepath = path.join(process.cwd(), 'public', filename)
-  return fs.outputJson(filepath, data, { spaces: 2 })
+// Create all files inside `output/stats/answers` folder
+// 1 file by question category: `frontend.json`, `backend.json`
+const writeAllFiles = (data, folderPath, logger) => {
+  Object.keys(data).map(category => {
+    const filepath = path.join(folderPath, `${category}.json`)
+    logger.info('Writing', filepath)
+    return fs.outputJson(filepath, data[category], { spaces: 2 })
+  })
 }
 
 module.exports = main
