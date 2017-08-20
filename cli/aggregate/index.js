@@ -1,5 +1,13 @@
-// Launch the `aggregate` script
-// Generate `output/aggregate` folder from files inside `output/responses`
+/*
+==========================================
+`aggregate` step of the pipeline (STEP #2)
+==========================================
+To be run after the `download` step.
+Launched by `node cli aggregate` command
+Generate `output/aggregate` folder from files inside `output/responses`
+by running a huge process of reducing all data from the CSV files
+*/
+
 const path = require('path')
 const fs = require('fs-extra')
 const numeral = require('numeral')

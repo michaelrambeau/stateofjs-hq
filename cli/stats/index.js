@@ -1,10 +1,10 @@
 /*
-=============================
-`STATS` step of the pipeline
-=============================
-To be run after the `AGGREGATE` step.
+==========================================
+`stats` step of the pipeline (STEP #3)
+==========================================
+To be run after the `aggregate` step.
 Launched by `node cli stats` command
-Goal: generate ligher files from aggregated files,
+Goal: generate ligther files from the aggregated files,
 using "shortlist" of keywords to compact the `other` answers.
 */
 const path = require('path')
@@ -38,7 +38,7 @@ async function main(options, logger) {
 }
 
 // Create all files inside `output/stats/answers` folder
-// 1 file by question category: `frontend.json`, `backend.json`
+// 1 file by question category: `frontend.json`, `backend.json`...
 const writeAllFiles = (data, folderPath, logger) => {
   Object.keys(data).map(category => {
     const filepath = path.join(folderPath, `${category}.json`)
