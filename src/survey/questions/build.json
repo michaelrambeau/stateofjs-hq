@@ -13,34 +13,20 @@
   { 
     "key": "other", 
     "text": "Other build tools",
-    "words": [
-      "yarn",
-      "brunch",
-      "make",
-      "broccoli",
-      "bower",
-      "jspm",
-      "fusebox",
-      "meteor",
-      "systemjs",
-      "gradle",
-      "makefile",
-      "stealjs"
-    ],
-    "fullwords": [
-      "yarn",
-      "brunch",
-      "make",
-      "broccoli",
-      "bower",
-      "jspm",
-      "fusebox",
-      "meteor",
-      "systemjs",
-      "gradle",
-      "makefile",
-      "stealjs"
-    ] 
+    "keywords": [
+      {"text": "yarn", "shortlist": true},
+      {"text": "brunch", "shortlist": true},
+      {"text": "make", "shortlist": true},
+      {"text": "broccoli", "shortlist": true},
+      {"text": "bower", "shortlist": true},
+      {"text": "jspm", "shortlist": true},
+      {"text": "fusebox", "shortlist": true},
+      {"text": "meteor", "shortlist": true},
+      {"text": "systemjs", "shortlist": true},
+      {"text": "gradle", "shortlist": true},
+      {"text": "makefile", "shortlist": true},
+      {"text": "stealjs", "shortlist": true}
+    ]
   },
   {
     "key": "happy",

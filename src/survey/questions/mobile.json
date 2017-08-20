@@ -13,28 +13,17 @@
   { 
     "key": "other", 
     "text": "Other mobile/desktop apps solutions",
-    "words": [
-      "weex",
-      "xamarin",
-      { "text": "nw.js", "query": "nw.?js" },
-      { "text": "pwa", "query": "pwa|progressive web apps" },
-      "flutter",
-      "titanium",
-      "expo",
-      "quasar",
-      "fuse"
-    ],
-    "fullwords": [
-      "weex",
-      "xamarin",
-      { "text": "nw.js", "query": "nw.?js" },
-      { "text": "pwa", "query": "pwa|progressive web apps" },
-      "flutter",
-      "titanium",
-      "expo",
-      "quasar",
-      "fuse"
-    ] 
+    "keywords": [
+      { "text": "weex", "shortlist": true },
+      { "text": "xamarin", "shortlist": true },
+      { "text": "nw.js", "query": "nw.?js", "shortlist": true },
+      { "text": "pwa", "query": "pwa|progressive web apps", "shortlist": true },
+      { "text": "flutter", "shortlist": true },
+      { "text": "titanium", "shortlist": true },
+      { "text": "expo", "shortlist": true },
+      { "text": "quasar", "shortlist": true },
+      { "text": "fuse", "shortlist": true }
+    ]
   },
   {
     "key": "happy",
