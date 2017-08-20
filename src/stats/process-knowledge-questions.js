@@ -4,7 +4,7 @@ const flatten = require('lodash.flatten')
 
 // Apply 2 transformations to all answers from `answers.json` file.
 // * Group all `type="knowledge"` questions under `data` path
-// * Clean the `key="other"` questionx to keep only answers defined in the "words" object
+// * Clean the `key="other"` question to keep only answers defined in the "keywords" object
 function convert(answers) {
   return mapValues(answers, (value, category) => {
     return categoryHasOtherQuestion(category)
@@ -45,7 +45,7 @@ const filterOtherWords = (answerKeywords, category) => {
   // Loop through all `words` for a given question
   // Each word can be either a string of an Object:
   //  { "text": "rails", "query": "rails|ruby on rails" }
-  const questionKeywords = getOtherQuestion(category).words.map(
+  const questionKeywords = getOtherQuestion(category).keywords.map(
     item => item.text || item
   )
   return questionKeywords

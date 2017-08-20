@@ -1,7 +1,7 @@
 const debug = require('debug')('parse')
 
 const parseUserInputSurvey = question => input => {
-  const words = question.words
+  const words = question.keywords
   const found = words
     ? words.filter(word => {
         const re = new RegExp(word.query || word, 'i')

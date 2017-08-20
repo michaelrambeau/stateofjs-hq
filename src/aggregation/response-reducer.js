@@ -118,7 +118,7 @@ const createReducer = (survey, options = {}) => (state, data) => {
         const key = question.key
         return Object.assign({}, data.answers[category][key], {
           key,
-          words: question ? question.words : []
+          words: question ? question.keywords : []
         })
       })
       .reduce(answersReducer, state.answers[category])
