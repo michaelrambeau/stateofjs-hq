@@ -57,11 +57,14 @@ test('It should compact the content of a single JSON file', () => {
     'backend.json'
   )
   return compactJsonFile({
+    questions,
+    category: 'backend',
     filepath,
     questionKey: 'other',
     keywords
   }).then(result => {
-    expect(Object.keys(result)).toEqual(['meteor', 'express', 'other', 'happy'])
+    expect(Object.keys(result).sort()).toEqual(['data', 'happy', 'other'])
+    expect(Object.keys(result.data)).toEqual(['meteor', 'express'])
     expect(Object.keys(result.other)).toEqual([
       'node.js',
       'dotnet',

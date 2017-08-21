@@ -1,6 +1,10 @@
+/*
+Functions used by the `stats` step of the pipeline
+*/
+const debug = require('debug')('compact')
 const fs = require('fs-extra')
 const path = require('path')
-const debug = require('debug')('compact')
+const flatten = require('lodash.flatten')
 
 const isShortListMember = keywords => (count, key) => {
   const found = keywords.find(item => item.text === key)
@@ -20,7 +24,7 @@ function compactWithShortList(input, keywords) {
     )
 }
 
-// Filter responses to a given question (E.g. `other` to filter "other responses")
+// Filter responses to a given question (E.g. questionKey = `other` to filter other responses)
 function compactCategoryAnswers({ answers, questionKey, keywords }) {
   if (!answers[questionKey]) return answers
   const compacted = compactWithShortList(answers[questionKey], keywords)
@@ -29,14 +33,48 @@ function compactCategoryAnswers({ answers, questionKey, keywords }) {
   })
 }
 
-// Filter a single file
-async function compactJsonFile({ filepath, questionKey, keywords }) {
-  debug('> JSON', filepath)
-  const answers = await fs.readJson(filepath)
-  return compactCategoryAnswers({ answers, questionKey, keywords })
+// Group all answers to the `knowledge` questions of a given category under a `data` property
+const processCategoryAnswers = ({ questions, categoryAnswers, category }) => {
+  const { other, happy } = categoryAnswers
+  const dataKeys = flatten(
+    questions[category]
+      .filter(question => question.type === 'knowledge')
+      .map(question => question.items)
+  )
+    .filter(item => !!categoryAnswers[item.key])
+    .map(item => item.key)
+  const reducer = (acc, val) =>
+    Object.assign({}, acc, { [val]: categoryAnswers[val] })
+  const data = dataKeys.reduce(reducer, {})
+  return {
+    data,
+    other,
+    happy
+  }
 }
 
-// Filter all files in a given folder
+// Process a single file of answers to a given category (E.g. `frontend.json`)
+async function compactJsonFile({
+  questions,
+  category,
+  filepath,
+  questionKey,
+  keywords
+}) {
+  debug('> JSON', filepath)
+  const answers = await fs.readJson(filepath)
+  // STEP 1: compact responses to the other question using the shortlist of keywords
+  const compacted = compactCategoryAnswers({ answers, questionKey, keywords })
+  // STEP 2: group answers under `data` property
+  const grouped = processCategoryAnswers({
+    questions,
+    category,
+    categoryAnswers: compacted
+  })
+  return grouped
+}
+
+// Process all files in a given folder
 async function compactAllJsonFiles({
   inputFolderPath,
   questionKey,
@@ -59,13 +97,15 @@ async function compactAllJsonFiles({
   const processJsonFile = async inputItem => {
     const keywords = getKeywords(inputItem.category)
     return compactJsonFile({
+      questions,
+      category: inputItem.category,
       filepath: inputItem.filepath,
       questionKey,
       keywords
     })
   }
   const results = await Promise.all(input.map(processJsonFile))
-  // Create an object sorted by category from the array of result
+  // Create an object sorted by category from the array of results
   return input.reduce(
     (acc, val, i) =>
       Object.assign({}, acc, {
