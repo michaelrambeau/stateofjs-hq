@@ -20,6 +20,7 @@ const createCountryReducer = require('../../src/aggregation/create-country-reduc
 const createResponseReducer = require('../../src/aggregation/response-reducer')
 const numberToFilename = require('../../src/helpers/page-number-to-filename')
 const { sortMeta, sortAnswers } = require('../../src/sort-helpers')
+const aggregateByCountry = require('./aggregate-by-country')
 
 async function main(options, logger) {
   try {
@@ -38,6 +39,9 @@ async function main(options, logger) {
       'aboutYou'
     ])
     const { page, all, country } = options
+
+    if (country) return aggregateByCountry(options, logger, survey)
+
     const reducer = createResponseReducer(survey)
     // The "reducer" applied to all responses from all files
     const responseReducer = country ? createCountryReducer(reducer) : reducer
